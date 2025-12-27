@@ -2,6 +2,10 @@
 
 Web application to manage alarm and video surveillance systems, client lists, and commercial proposals.
 
+## Technologies (frontend)
+
+- React 18
+
 ## Technologies (backend)
 
 - Express 5
