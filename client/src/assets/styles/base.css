@@ -1,0 +1,29 @@
+html {
+  font-size: 100%;
+}
+body {
+  font-size: 1rem;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration-line: none;
+  color: inherit;
+}
+
+button,
+a {
+  background-color: transparent;
+}
+
+/* cursors */
+li,
+a,
+button {
+  cursor: pointer;
+}
+button svg,
+a svg {
+  pointer-events: none;
+}
