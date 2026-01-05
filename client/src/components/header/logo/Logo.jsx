@@ -1,5 +1,12 @@
+import Title from "../../ui/other/title/Title.jsx";
+
 function Logo() {
-  return <div>LOGO</div>;
+  return (
+    <div>
+      <div>MENU</div>
+      <Title />
+    </div>
+  );
 }
 
 export default Logo;
