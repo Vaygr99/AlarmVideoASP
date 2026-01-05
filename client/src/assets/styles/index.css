@@ -4,5 +4,6 @@
 
 /* screen: header */
 @import "./screen/header/header.css";
+@import "./screen/header/title.css";
 /* screen: main */
 @import "./screen/main/main.css";

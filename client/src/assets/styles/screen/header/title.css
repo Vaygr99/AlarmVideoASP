@@ -1,0 +1,16 @@
+#title img {
+  height: 2.5rem;
+}
+#title section {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  #title img {
+    height: 2.7rem;
+  }
+  #title section {
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+}
