@@ -4,9 +4,11 @@ import Logo from "./logo/Logo.jsx";
 import Menu from "./menu/Menu.jsx";
 import Mini from "./mini/Mini.jsx";
 
+import styles from "./Header.module.css";
+
 function Header() {
   return (
-    <header>
+    <header className={styles.container}>
       <Logo />
       <Menu />
       <Mini />
