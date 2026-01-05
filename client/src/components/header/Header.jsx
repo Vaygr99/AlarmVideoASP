@@ -8,7 +8,7 @@ import styles from "./Header.module.css";
 
 function Header() {
   return (
-    <header className={styles.container}>
+    <header id="header" className={styles.container}>
       <Logo />
       <Menu />
       <Mini />
