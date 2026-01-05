@@ -1,0 +1,23 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.2rem;
+}
+
+/* logo */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* text */
+.text {
+  font-weight: 600;
+  line-height: 0.8;
+  padding-top: 2px;
+}
+.text span {
+  font-size: 0.85em;
+  font-weight: 300;
+}
