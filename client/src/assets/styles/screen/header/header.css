@@ -1,9 +1,18 @@
 #header {
   padding: 0.35rem 1rem;
 }
+#logo {
+  column-gap: 0.6rem;
+}
 
 @media (max-width: 768px) {
   #header {
-    padding: 0.5rem;
+    padding: 0.4rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #logo {
+    column-gap: 0.5rem;
   }
 }
