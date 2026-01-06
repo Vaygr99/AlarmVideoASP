@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import BaseButton from "../BaseButton.jsx";
 
+import styles from "./IconTextButton.module.css";
+
 function IconTextButton({ icon, text, className }) {
   return (
-    <BaseButton className={`${className ?? ""}`}>
+    <BaseButton className={`${styles.container} ${className ?? ""}`}>
       <FontAwesomeIcon icon={icon} />
       <span>{text}</span>
     </BaseButton>
