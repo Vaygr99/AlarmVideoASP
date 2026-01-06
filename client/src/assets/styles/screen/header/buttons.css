@@ -4,12 +4,22 @@
   width: 2.5rem;
   height: 2.5rem;
 }
+#header .lang-button {
+  font-size: 2rem;
+  width: 2.7rem;
+  height: 2.5rem;
+}
 
 @media (max-width: 768px) {
   #header .top-square-button,
   #header .top-circle-button {
     font-size: 2.7rem;
     width: 2.7rem;
+    height: 2.7rem;
+  }
+  #header .lang-button {
+    font-size: 2.2rem;
+    width: 2.9rem;
     height: 2.7rem;
   }
 }
