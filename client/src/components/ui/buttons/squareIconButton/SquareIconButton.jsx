@@ -3,9 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import BaseButton from "../BaseButton.jsx";
 
-const SquareIconButton = function SquareIconButton({ icon }) {
+import styles from "./SquareIconButton.module.css";
+
+const SquareIconButton = function ({ icon, className }) {
   return (
-    <BaseButton>
+    <BaseButton className={`${styles.container} ${className ?? ""}`}>
       <FontAwesomeIcon icon={icon} />
     </BaseButton>
   );
