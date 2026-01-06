@@ -1,0 +1,32 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+  padding-top: 1px;
+  column-gap: 0.3rem;
+}
+
+/* link: about */
+.container > a {
+  width: 6.5rem;
+  height: 2rem;
+  font-size: 1.2rem;
+}
+
+/* button: services */
+.container button {
+  width: 7.4rem;
+  height: 2rem;
+  font-size: 1.2rem;
+}
+.container button svg {
+  transform: translateX(4px);
+  font-size: 0.7em;
+}
+
+/* container for services button + menu */
+.container > div {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  height: 2.5rem;
+}
