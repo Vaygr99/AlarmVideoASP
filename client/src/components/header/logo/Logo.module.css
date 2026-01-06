@@ -2,3 +2,7 @@
   display: inline-flex;
   align-items: center;
 }
+.container > div {
+  display: inline-flex;
+  position: relative;
+}

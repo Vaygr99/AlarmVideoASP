@@ -8,7 +8,7 @@ import styles from "./Logo.module.css";
 
 function Logo() {
   return (
-    <div className={styles.container}>
+    <div id="logo" className={styles.container}>
       <div>
         <SquareIconButton icon={faBars} className="top-square-button" />
       </div>
