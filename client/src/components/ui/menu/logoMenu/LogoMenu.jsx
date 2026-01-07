@@ -1,5 +1,7 @@
 import BaseLink from "../BaseLink.jsx";
 
+import styles from "./LogoMenu.module.css";
+
 // Menu container from logo area (services + other)
 function LogoMenu() {
   const services = [
@@ -12,7 +14,7 @@ function LogoMenu() {
   const different = [{ text: "Про нас", link: "/about" }];
 
   return (
-    <div id="logo-menu">
+    <div id="logo-menu" className={styles.container}>
       <div>
         {/* services list */}
         <nav>
