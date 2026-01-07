@@ -5,9 +5,13 @@
   font-size: 1.25rem;
 }
 
+#phones-menu,
 #services-menu {
   top: 3.3rem;
 }
 #services-menu > a {
   font-size: 1.17rem;
+}
+#phones-menu > a {
+  font-size: 1.25rem;
 }

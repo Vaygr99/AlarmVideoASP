@@ -1,5 +1,7 @@
 import BaseLink from "../BaseLink.jsx";
 
+import styles from "./PhonesMenu.module.css";
+
 // Menu container from mini area (phones)
 function PhonesMenu() {
   const data = [
@@ -9,7 +11,7 @@ function PhonesMenu() {
 
   return (
     // Phones list
-    <nav id="phones-menu">
+    <nav id="phones-menu" className={styles.container}>
       {data.map((elem, index) => (
         <BaseLink key={index} to={`tel:${elem.phone}`}>
           <span>
