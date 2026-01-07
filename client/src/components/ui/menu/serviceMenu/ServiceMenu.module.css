@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 100;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 6px;
+}
+.container a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0.3rem 0.5rem;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  position: relative;
+  white-space: nowrap;
+}
+.container a > span {
+  white-space: nowrap;
+  font-size: 1em;
+  font-weight: 600;
+}
+.container a:first-child {
+  border-radius: 2px 2px 0 0;
+}
+.container a:last-child {
+  border-bottom-width: 0;
+  border-radius: 0 0 2px 2px;
+}

@@ -1,5 +1,7 @@
 import BaseLink from "../BaseLink.jsx";
 
+import styles from "./ServiceMenu.module.css";
+
 // Menu container from menu area (services)
 function ServiceMenu() {
   const data = [
@@ -11,7 +13,7 @@ function ServiceMenu() {
   ];
   return (
     // Services list
-    <nav id="services-menu">
+    <nav id="services-menu" className={styles.container}>
       {data.map((elem, index) => (
         <BaseLink key={index} to={elem.link}>
           <span>{elem.service}</span>
