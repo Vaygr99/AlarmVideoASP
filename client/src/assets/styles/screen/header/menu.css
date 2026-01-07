@@ -15,3 +15,12 @@
 #phones-menu > a {
   font-size: 1.25rem;
 }
+
+@media (max-width: 768px) {
+  #phones-menu {
+    top: 3.7rem;
+  }
+  #phones-menu > a {
+    font-size: 1.29rem;
+  }
+}
