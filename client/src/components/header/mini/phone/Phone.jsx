@@ -9,7 +9,7 @@ import styles from "./Phone.module.css";
 
 // Phone container from mini area (button + menu)
 function Phone() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
 
   useOutsideClick([wrapperRef], () => setOpen(false));

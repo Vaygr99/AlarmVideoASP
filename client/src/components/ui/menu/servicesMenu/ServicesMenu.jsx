@@ -1,9 +1,9 @@
 import BaseLink from "../BaseLink.jsx";
 
-import styles from "./ServiceMenu.module.css";
+import styles from "./ServicesMenu.module.css";
 
 // Menu container from menu area (services)
-function ServiceMenu() {
+function ServicesMenu() {
   const data = [
     { service: "Охоронна сигналiзацiя", link: "/burglar" },
     { service: "Пожежна сигналiзацiя", link: "/fire" },
@@ -23,4 +23,4 @@ function ServiceMenu() {
   );
 }
 
-export default ServiceMenu;
+export default ServicesMenu;

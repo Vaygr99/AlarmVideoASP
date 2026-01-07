@@ -4,13 +4,13 @@ import { useState, useRef } from "react";
 import IconTextButton from "../../ui/buttons/iconTextButton/IconTextButton.jsx";
 import LinkButton from "../../ui/buttons/linkButton/LinkButton.jsx";
 import useOutsideClick from "../../ui/menu/useOutsideClick.js";
-import ServiceMenu from "../../ui/menu/serviceMenu/ServiceMenu.jsx";
+import ServicesMenu from "../../ui/menu/servicesMenu/ServicesMenu.jsx";
 
 import styles from "./Menu.module.css";
 
 // Menu area (in top <header>)
 function Menu() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
 
   useOutsideClick([wrapperRef], () => setOpen(false));
@@ -24,7 +24,7 @@ function Menu() {
           text="Services"
           className={`services-button`}
         />
-        {open && <ServiceMenu />}
+        {open && <ServicesMenu />}
       </div>
       <LinkButton to="/about" text="About us" />
     </div>
