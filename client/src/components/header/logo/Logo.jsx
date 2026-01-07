@@ -19,7 +19,11 @@ function Logo() {
   return (
     <div id="logo" className={styles.container}>
       {/* button + menu (services and about us) */}
-      <div ref={wrapperRef} onClick={() => setOpen((prev) => !prev)}>
+      <div
+        id="logo-menu-container"
+        ref={wrapperRef}
+        onClick={() => setOpen((prev) => !prev)}
+      >
         <SquareIconButton icon={faBars} className="top-square-button" />
         {open && <LogoMenu />}
       </div>
