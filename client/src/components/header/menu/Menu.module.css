@@ -1,7 +1,7 @@
 .container {
   display: inline-flex;
   align-items: center;
-  padding-top: 1px;
+  transform: translateY(0.05em);
   column-gap: 0.3rem;
 }
 
@@ -19,7 +19,7 @@
   font-size: 1.2rem;
 }
 .container button svg {
-  transform: translateX(4px);
+  transform: translateX(0.25em);
   font-size: 0.7em;
 }
 

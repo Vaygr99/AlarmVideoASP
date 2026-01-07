@@ -5,7 +5,7 @@
   border-style: solid;
   border-width: 2px;
   border-radius: 6px;
-  column-gap: 5px;
+  column-gap: 0.25em;
   background-color: transparent;
   position: relative;
 }

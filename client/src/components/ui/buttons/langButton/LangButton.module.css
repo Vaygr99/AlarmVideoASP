@@ -9,7 +9,6 @@
 .container > span {
   display: inline-block;
   line-height: 0.7;
-  transform: translateX(0.3px);
   font-size: 0.7em;
   font-weight: 500;
 }
