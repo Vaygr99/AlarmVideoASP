@@ -5,6 +5,7 @@ import Lang from "./lang/Lang.jsx";
 
 import styles from "./Mini.module.css";
 
+// Mini area (in top <header>)
 function Mini() {
   return (
     <div id="mini" className={styles.container}>

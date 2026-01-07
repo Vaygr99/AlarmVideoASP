@@ -1,13 +1,19 @@
-// Admin section (includes a button and a form)
 import { faUserAstronaut } from "@fortawesome/free-solid-svg-icons";
 
 import SquareIconButton from "../../../ui/buttons/squareIconButton/SquareIconButton.jsx";
 
+// Admin container from mini area (button + form)
 function Admin() {
   return (
-    <div id="mini-admin">
-      <SquareIconButton className="top-square-button" icon={faUserAstronaut} />
-    </div>
+    <>
+      {/* button + authorization form */}
+      <div id="mini-admin">
+        <SquareIconButton
+          className="top-square-button"
+          icon={faUserAstronaut}
+        />
+      </div>
+    </>
   );
 }
 

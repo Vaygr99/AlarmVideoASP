@@ -1,10 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
 
-// all css-files (.css)
+// all css-files in project (.css)
 import "./assets/styles/index.css";
-// get components for App
+// Components list for App
 import { Header, Footer } from "./models/unifications/forApp.js";
 
+// Base client component
 function App() {
   return (
     <div>

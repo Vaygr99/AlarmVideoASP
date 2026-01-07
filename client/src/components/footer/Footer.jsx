@@ -1,5 +1,4 @@
-// base component for <footer> tag
-
+// Means <footer> tag
 function Footer() {
   return <footer>FOOTER</footer>;
 }

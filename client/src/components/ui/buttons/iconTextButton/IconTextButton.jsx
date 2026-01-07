@@ -6,6 +6,7 @@ import BaseButton from "../BaseButton.jsx";
 
 import styles from "./IconTextButton.module.css";
 
+// Button template with icon and text inside
 function IconTextButton({ icon, text, className }) {
   return (
     <BaseButton className={`${styles.container} ${className ?? ""}`}>
