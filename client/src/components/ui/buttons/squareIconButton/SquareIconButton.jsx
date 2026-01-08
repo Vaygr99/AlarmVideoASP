@@ -5,9 +5,9 @@ import BaseButton from "../BaseButton.jsx";
 import styles from "./SquareIconButton.module.css";
 
 // Square button template with icon inside
-const SquareIconButton = function ({ icon, className }) {
+const SquareIconButton = function ({ icon, className, ...props }) {
   return (
-    <BaseButton className={`${styles.container} ${className ?? ""}`}>
+    <BaseButton {...props} className={`${styles.container} ${className ?? ""}`}>
       <FontAwesomeIcon icon={icon} />
     </BaseButton>
   );
