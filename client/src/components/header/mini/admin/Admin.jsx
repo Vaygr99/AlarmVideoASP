@@ -7,7 +7,7 @@ import useOutsideClick from "../../../ui/menu/useOutsideClick.js";
 
 // Admin container from mini area (button + form)
 function Admin() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
 
   useOutsideClick([wrapperRef], () => setOpen(false));
