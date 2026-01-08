@@ -1,0 +1,15 @@
+.links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 0.4rem 0;
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 2px;
+  column-gap: 0.9rem;
+}
+.links a {
+  font-size: 1.28rem;
+  font-weight: 500;
+  position: relative;
+}
