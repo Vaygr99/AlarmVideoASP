@@ -12,7 +12,9 @@ function Admin() {
         <NavLink to="edit">Edit</NavLink>
         <NavLink to="offer">Offer</NavLink>
       </nav>
-      <Outlet />
+      <div className={styles.content}>
+        <Outlet />
+      </div>
     </div>
   );
 }

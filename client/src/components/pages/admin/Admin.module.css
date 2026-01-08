@@ -1,7 +1,7 @@
 .links {
   display: flex;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   padding: 0.4rem 0;
   border-radius: 6px;
   border-style: solid;
@@ -12,4 +12,11 @@
   font-size: 1.28rem;
   font-weight: 500;
   position: relative;
+}
+
+.content {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 6px;
+  padding: 0.63rem;
 }
