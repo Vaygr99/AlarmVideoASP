@@ -1,3 +1,4 @@
+const { verifyClients } = require("./verify/verifyClients.js");
 // CRUD endpoints for edit section
 function editData(app, db) {
   // app - express object
@@ -21,6 +22,12 @@ function editData(app, db) {
   app.post("/edit-data/clients/new", async (req, res) => {
     try {
       const { name, phone, info } = req.body;
+
+      // If data is incorrect
+      if (!verifyClients(req.body)) {
+        return res.status(400).json({ error: "Incorrect client data" });
+      }
+
       await db.collection("clients").insertOne({ name, phone, info });
       res.status(201).json({ message: "New client added successfully" });
     } catch (error) {
