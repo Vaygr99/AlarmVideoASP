@@ -4,9 +4,10 @@ const PORT = 4000;
 
 const dbConnection = require("./db.js");
 const verifyDB = require("./models/verifyDB.js");
-const editData = require("./api/editData.js");
+const editData = require("./api/edit/editData.js");
 
 const app = express();
+app.use(express.json());
 
 (async function startServer() {
   try {
