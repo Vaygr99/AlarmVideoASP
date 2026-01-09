@@ -16,7 +16,18 @@ function editData(app, db) {
         .json({ error: "Server error while download data for edit section" });
     }
   });
-  
+
+  // Add new client
+  app.post("/edit-data/clients/new", async (req, res) => {
+    try {
+      const { name, phone, info } = req.body;
+      await db.collection("clients").insertOne({ name, phone, info });
+      res.status(201).json({ message: "New client added successfully" });
+    } catch (error) {
+      console.error("Error adding client:", error.message);
+      res.status(500).json({ error: "Server error while adding client" });
+    }
+  });
 }
 
 module.exports = editData;
