@@ -2,24 +2,25 @@ const express = require("express");
 
 const PORT = 4000;
 
-const { dbConnection } = require("./db.js");
+const dbConnection = require("./db.js");
+const verifyDB = require("./models/verifyDB.js");
+const editData = require("./api/editData.js");
+
 const app = express();
 
-// Get data from clients and devices for edit section in admin area
-app.get("/edit-data", async (req, res) => {
+(async function startServer() {
   try {
     const db = await dbConnection();
-    const clients = await db.collection("clients").find().toArray();
-    const devices = await db.collection("devices").find().toArray();
-    res.status(200).json({ clients, devices });
-  } catch (error) {
-    console.error("Error getting data for edit section:", error.message);
-    res
-      .status(500)
-      .json({ error: "Server error while download data for edit section" });
-  }
-});
+    await verifyDB(db);
 
-app.listen(PORT, () => {
-  console.dir(`Server is running on port ${PORT}`);
-});
+    // CRUD endpoints for edit section
+    editData(app, db);
+
+    app.listen(PORT, () => {
+      console.dir(`Server is running on port ${PORT}`);
+    });
+  } catch (err) {
+    console.error("Server failed to start:", err.message);
+    process.exit(1);
+  }
+})();

@@ -15,4 +15,4 @@ async function dbConnection() {
   }
 }
 
-module.exports = { dbConnection };
+module.exports = dbConnection;
