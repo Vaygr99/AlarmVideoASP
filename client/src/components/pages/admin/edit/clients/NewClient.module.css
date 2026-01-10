@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.container h3 {
+  text-decoration-style: solid;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  margin-bottom: 2px;
+  font-size: 1.2rem;
+}
+
+.container span {
+  font-size: 1.15rem;
+}
+
+.newData {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.newData > div {
+  display: flex;
+  width: 100%;
+}

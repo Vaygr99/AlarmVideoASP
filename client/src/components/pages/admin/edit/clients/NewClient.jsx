@@ -1,45 +1,27 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import IconInput from "../../../../ui/inputs/iconInput/IconInput.jsx";
+
+import styles from "./NewClient.module.css";
+
 // Add new client on edit page
 function NewClient({ icons }) {
   return (
     <>
       {/* Add new client */}
-      <div>
+      <div className={styles.container}>
         <h3>Додати новий...</h3>
-        {/* Client territory */}
-        <div>
-          <span>Объект:</span>
+        {/* Customer */}
+        <div className={styles.newData}>
+          <span>Заказчик:</span>
           <div>
             <span>
               <FontAwesomeIcon icon={icons.faF} />
             </span>
-            <input placeholder="Назва об'єкту" />
-            <button>
-              <FontAwesomeIcon icon={icons.faTrashCan} />
-            </button>
+            <IconInput placeholder="Назва об'єкту" icon={icons.faTrashCan}/>  
           </div>
         </div>
-        {/* Client phone */}
-        <div>
-          <span>Телефон:</span>
-          <div>
-            <input />
-            <button>
-              <FontAwesomeIcon icon={icons.faTrashCan} />
-            </button>
-          </div>
-        </div>
-        {/* Useful info */}
-        <div>
-          <span>Инфо:</span>
-          <div>
-            <textarea placeholder="Iнформацiя"></textarea>
-            <button>
-              <FontAwesomeIcon icon={icons.faTrashCan} />
-            </button>
-          </div>
-        </div>
+        
       </div>
     </>
   );
