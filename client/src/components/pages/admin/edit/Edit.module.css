@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 6px;
+  padding: 0.63rem;
+  position: relative;
+}
+.container h2 {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.clients {
+  border-right-style: solid;
+  border-right-width: 2px;
+}
+.clients,
+.devices {
+  padding-left: 0.63rem;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
