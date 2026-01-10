@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import IconInput from "../../../../ui/inputs/iconInput/IconInput.jsx";
+import IconTextarea from "../../../../ui/inputs/iconTextarea/IconTextarea.jsx";
 
 import styles from "./NewClient.module.css";
 
@@ -18,10 +19,15 @@ function NewClient({ icons }) {
             <span>
               <FontAwesomeIcon icon={icons.faF} />
             </span>
-            <IconInput placeholder="Назва об'єкту" icon={icons.faTrashCan}/>  
+            <IconInput placeholder="Назва об'єкту" icon={icons.faTrashCan} />
           </div>
         </div>
-        
+
+        {/* Useful info */}
+        <div className={styles.newData}>
+          <span>Инфо:</span>
+          <IconTextarea placeholder="Информация" icon={icons.faTrashCan} />
+        </div>
       </div>
     </>
   );

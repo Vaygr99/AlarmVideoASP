@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  align-items: center;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 4px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.container textarea {
+  font-size: 1.1em;
+  width: 100%;
+  border: 0;
+  height: 5.1em;
+}
+.container button {
+  width: 0.8em;
+  height: 0.9em;
+  font-size: 1.8em;
+  border: 0;
+}
