@@ -1,3 +1,8 @@
+
+import { faTrashCan, faF } from "@fortawesome/free-solid-svg-icons";
+
+import NewClient from "./clients/NewClient.jsx";
+
 import styles from "./Edit.module.css";
 
 // Page for working with clients and devices
@@ -6,9 +11,8 @@ function Edit() {
     <div id="edit" className={styles.container}>
       {/* Clients area */}
       <div className={styles.clients}>
-        <div>
-          <h2>Клiєнти</h2>
-        </div>
+        <h2>Клiєнти</h2>
+        <NewClient icons={{faTrashCan, faF}} />
       </div>
 
       {/* Devices area */}
