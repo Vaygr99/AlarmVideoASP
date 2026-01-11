@@ -1,8 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  row-gap: 6px;
-  margin-bottom: 20px;
+  row-gap: 0.35rem;
+  margin-bottom: 1rem;
   position: relative;
 }
 
@@ -24,7 +24,12 @@
   align-items: center;
   column-gap: 10px;
 }
-.newData > div {
+.newClient {
   display: flex;
   width: 100%;
+}
+.newClient span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

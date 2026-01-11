@@ -1,10 +1,7 @@
 .container {
   display: flex;
   justify-content: space-between;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 6px;
-  padding: 0.63rem;
+
   position: relative;
 }
 .container h2 {
@@ -15,10 +12,10 @@
 .clients {
   border-right-style: solid;
   border-right-width: 2px;
+  padding-right: 0.63rem;
 }
 .clients,
 .devices {
-  padding-left: 0.63rem;
   display: flex;
   flex-direction: column;
   width: 50%;

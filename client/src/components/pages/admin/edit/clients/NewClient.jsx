@@ -18,7 +18,7 @@ function NewClient({ icons }) {
         {/* Customer */}
         <div className={styles.newData}>
           <span>Заказчик:</span>
-          <div>
+          <div className={styles.newClient}>
             <span>
               <FontAwesomeIcon icon={icons.faF} />
             </span>
