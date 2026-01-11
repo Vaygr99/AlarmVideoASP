@@ -6,8 +6,12 @@ import styles from "./Lang.module.css";
 function Lang() {
   return (
     <div id="mini-lang" className={styles.container}>
-      <LangButton text="RU" className="lang-button" />
-      <LangButton text="UA" className="lang-button" />
+      <LangButton className="lang-button">
+        <span>RU</span>
+      </LangButton>
+      <LangButton className="lang-button">
+        <span>UA</span>
+      </LangButton>
     </div>
   );
 }

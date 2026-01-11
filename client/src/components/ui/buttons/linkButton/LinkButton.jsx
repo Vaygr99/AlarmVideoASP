@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 import styles from "./LinkButton.module.css";
 
-// Link button template with text inside
-function LinkButton({ to, text, className }) {
+// Link button template
+function LinkButton({ to = "*", className = "", children }) {
   return (
-    <Link to={to ?? "*"} className={`${styles.container} ${className ?? ""}`}>
-      {text}
+    <Link to={to} className={`${styles.container} ${className}`}>
+      {children}
     </Link>
   );
 }

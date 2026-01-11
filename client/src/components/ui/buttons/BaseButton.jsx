@@ -1,11 +1,12 @@
 // Template for different button variants (square, circle etc.)
-const BaseButton = function ({ children, className, ...props }) {
+const BaseButton = function ({
+  children,
+  className = "",
+  type = "button",
+  ...props
+}) {
   return (
-    <button
-      className={className ?? ""}
-      type={props?.buttonType ?? "button"}
-      onClick={props?.onClick ?? null}
-    >
+    <button {...props} className={className} type={type}>
       {children}
     </button>
   );

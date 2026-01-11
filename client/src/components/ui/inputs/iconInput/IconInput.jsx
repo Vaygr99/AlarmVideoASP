@@ -6,10 +6,10 @@ import SquareIconButton from "../../buttons/squareIconButton/SquareIconButton.js
 import styles from "./IconInput.module.css";
 
 // Input template with icon after
-function IconInput({ placeholder, icon, className }) {
+function IconInput({ placeholder = "", icon }) {
   return (
     <div className={styles.container}>
-      <BaseInput placeholder={placeholder} className={`${className ?? ""}`} />
+      <BaseInput placeholder={placeholder} />
       <SquareIconButton icon={icon} />
     </div>
   );

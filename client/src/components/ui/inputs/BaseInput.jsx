@@ -1,11 +1,18 @@
 import styles from "./BaseInput.module.css";
 
 // Basic input element
-function BaseInput({ placeholder, className }) {
+function BaseInput({
+  placeholder = "",
+  type = "text",
+  className = "",
+  ...props
+}) {
   return (
     <input
-      placeholder={placeholder ?? ""}
-      className={`${className ?? ""} ${styles.container}`}
+      {...props}
+      type={type}
+      placeholder={placeholder}
+      className={`${className} ${styles.container}`}
     />
   );
 }

@@ -5,11 +5,11 @@ import SquareIconButton from "../../../buttons/squareIconButton/SquareIconButton
 import styles from "./Submit.module.css";
 
 // Container for confirm/cancel buttons of admin form in mini area
-function Submit({ ...props }) {
+function Submit() {
   return (
     <div className={styles.container}>
-      <SquareIconButton {...props} icon={faXmark} />
-      <SquareIconButton icon={faCheck} buttonType="submit" />
+      <SquareIconButton icon={faXmark} />
+      <SquareIconButton icon={faCheck} type="submit" />
     </div>
   );
 }

@@ -6,13 +6,10 @@ import SquareIconButton from "../../buttons/squareIconButton/SquareIconButton.js
 import styles from "./IconTextarea.module.css";
 
 // Textarea template with icon after
-function IconTextarea({ placeholder, icon, className }) {
+function IconTextarea({ placeholder = "", icon }) {
   return (
     <div className={styles.container}>
-      <BaseTextarea
-        placeholder={placeholder}
-        className={`${className ?? ""}`}
-      />
+      <BaseTextarea placeholder={placeholder} />
       <SquareIconButton icon={icon} />
     </div>
   );

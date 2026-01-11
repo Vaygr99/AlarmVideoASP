@@ -16,7 +16,7 @@ function AdminForm({ ...props }) {
     >
       <h2>Логин</h2>
       <PasswordInput />
-      <Submit {...props} />
+      <Submit />
     </form>
   );
 }

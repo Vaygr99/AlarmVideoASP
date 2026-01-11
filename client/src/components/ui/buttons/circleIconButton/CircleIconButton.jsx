@@ -5,9 +5,9 @@ import BaseButton from "../BaseButton.jsx";
 import styles from "./CircleIconButton.module.css";
 
 // Circle button template with icon inside
-function CircleIconButton({ icon, className }) {
+function CircleIconButton({ icon, className = "" }) {
   return (
-    <BaseButton className={`${styles.container} ${className ?? ""}`}>
+    <BaseButton className={`${styles.container} ${className}`}>
       <FontAwesomeIcon icon={icon} />
     </BaseButton>
   );

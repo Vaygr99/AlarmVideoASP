@@ -26,7 +26,7 @@ function Menu() {
         />
         {open && <ServicesMenu />}
       </div>
-      <LinkButton to="/about" text="About us" />
+      <LinkButton to="/about">About us</LinkButton>
     </div>
   );
 }

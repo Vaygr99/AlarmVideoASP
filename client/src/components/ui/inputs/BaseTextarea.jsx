@@ -1,12 +1,12 @@
 import styles from "./BaseTextarea.module.css";
 
 // Basic textarea element
-function BaseTextarea({ placeholder, className }) {
+function BaseTextarea({ placeholder }) {
   return (
     <textarea
       wrap="hard"
       placeholder={placeholder ?? ""}
-      className={`${className ?? ""} ${styles.container}`}
+      className={styles.container}
     />
   );
 }
