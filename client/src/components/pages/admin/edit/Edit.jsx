@@ -1,7 +1,7 @@
-
 import { faTrashCan, faF } from "@fortawesome/free-solid-svg-icons";
 
 import NewClient from "./clients/NewClient.jsx";
+import NewDevice from "./devices/NewDevice.jsx";
 
 import styles from "./Edit.module.css";
 
@@ -12,13 +12,14 @@ function Edit() {
       {/* Clients area */}
       <div className={styles.clients}>
         <h2>Клiєнти</h2>
-        <NewClient icons={{faTrashCan, faF}} />
+        <NewClient icons={{ faTrashCan, faF }} />
       </div>
 
       {/* Devices area */}
       <div className={styles.devices}>
         <div>
           <h2>Обладнання</h2>
+          <NewDevice icons={{ faTrashCan, faF }} />
         </div>
       </div>
     </div>
