@@ -1,12 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 
 import IconInput from "../../../../ui/inputs/iconInput/IconInput.jsx";
 import IconTextarea from "../../../../ui/inputs/iconTextarea/IconTextarea.jsx";
+import PhoneInput from "../../../../ui/other/phoneInput/PhoneInput.jsx";
 
 import styles from "./NewClient.module.css";
 
 // Add new client on edit page
 function NewClient({ icons }) {
+  const [phone, setPhone] = useState("");
   return (
     <>
       {/* Add new client */}
@@ -21,6 +24,16 @@ function NewClient({ icons }) {
             </span>
             <IconInput placeholder="Назва об'єкту" icon={icons.faTrashCan} />
           </div>
+        </div>
+
+        {/* Client phone */}
+        <div className={styles.newData}>
+          <span>Телефон:</span>
+          <PhoneInput
+            value={phone}
+            onChange={setPhone}
+            icon={icons.faTrashCan}
+          />
         </div>
 
         {/* Useful info */}
