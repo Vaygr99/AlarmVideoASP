@@ -24,3 +24,9 @@
   align-items: center;
   column-gap: 10px;
 }
+
+.saveData {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}

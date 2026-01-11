@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import IconInput from "../../../../ui/inputs/iconInput/IconInput.jsx";
+import TextButton from "../../../../ui/buttons/textButton/TextButton.jsx";
 
 import styles from "./NewDevice.module.css";
 
@@ -21,6 +22,11 @@ function NewDevice({ icons }) {
         <div className={styles.newData}>
           <span>Модель:</span>
           <IconInput placeholder="Назва об'єкту" icon={icons.faTrashCan} />
+        </div>
+
+        {/* Add new client button */}
+        <div className={styles.saveData}>
+          <TextButton text="Зберегти" />
         </div>
       </div>
     </>

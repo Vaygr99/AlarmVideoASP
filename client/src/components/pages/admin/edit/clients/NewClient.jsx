@@ -4,6 +4,7 @@ import { useState } from "react";
 import IconInput from "../../../../ui/inputs/iconInput/IconInput.jsx";
 import IconTextarea from "../../../../ui/inputs/iconTextarea/IconTextarea.jsx";
 import PhoneInput from "../../../../ui/other/phoneInput/PhoneInput.jsx";
+import TextButton from "../../../../ui/buttons/textButton/TextButton.jsx";
 
 import styles from "./NewClient.module.css";
 
@@ -40,6 +41,11 @@ function NewClient({ icons }) {
         <div className={styles.newData}>
           <span>Инфо:</span>
           <IconTextarea placeholder="Информация" icon={icons.faTrashCan} />
+        </div>
+
+        {/* Add new client button */}
+        <div className={styles.saveData}>
+          <TextButton text="Зберегти" />
         </div>
       </div>
     </>
