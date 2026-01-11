@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
-import IconInput from "../../../../ui/inputs/iconInput/IconInput.jsx";
-import IconTextarea from "../../../../ui/inputs/iconTextarea/IconTextarea.jsx";
-import PhoneInput from "../../../../ui/other/phoneInput/PhoneInput.jsx";
-import TextButton from "../../../../ui/buttons/textButton/TextButton.jsx";
+import IconInput from "../../../../../ui/inputs/iconInput/IconInput.jsx";
+import IconTextarea from "../../../../../ui/inputs/iconTextarea/IconTextarea.jsx";
+import PhoneInput from "../../../../../ui/other/phoneInput/PhoneInput.jsx";
+import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
 
 import styles from "./NewClient.module.css";
 

@@ -1,7 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import IconInput from "../../../../ui/inputs/iconInput/IconInput.jsx";
-import TextButton from "../../../../ui/buttons/textButton/TextButton.jsx";
+import IconInput from "../../../../../ui/inputs/iconInput/IconInput.jsx";
+import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
 
 import styles from "./NewDevice.module.css";
 

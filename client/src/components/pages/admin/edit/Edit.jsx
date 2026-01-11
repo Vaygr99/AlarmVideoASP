@@ -1,7 +1,7 @@
 import { faTrashCan, faF } from "@fortawesome/free-solid-svg-icons";
 
-import NewClient from "./clients/NewClient.jsx";
-import NewDevice from "./devices/NewDevice.jsx";
+import NewClient from "./clients/newClient/NewClient.jsx";
+import NewDevice from "./devices/newDevice/NewDevice.jsx";
 
 import styles from "./Edit.module.css";
 
