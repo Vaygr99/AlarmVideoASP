@@ -24,12 +24,3 @@
   align-items: center;
   column-gap: 10px;
 }
-.newClient {
-  display: flex;
-  width: 100%;
-}
-.newClient span {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
