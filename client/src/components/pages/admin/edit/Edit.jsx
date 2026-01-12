@@ -1,12 +1,21 @@
 import { faTrashCan, faF } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
 
 import NewClient from "./clients/newClient/NewClient.jsx";
 import NewDevice from "./devices/newDevice/NewDevice.jsx";
+
+import { getDataForEditPage } from "../../../../models/dbOperations/getDbData.js";
 
 import styles from "./Edit.module.css";
 
 // Page for working with clients and devices
 function Edit() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    getDataForEditPage(setData);
+  }, []);
+
   return (
     <div id="edit" className={styles.container}>
       {/* Clients area */}
