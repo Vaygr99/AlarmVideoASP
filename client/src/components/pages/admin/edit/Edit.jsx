@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import NewClient from "./clients/newClient/NewClient.jsx";
 import NewDevice from "./devices/newDevice/NewDevice.jsx";
 import Loader from "../../../ui/other/loader/Loader.jsx";
+import DbError from "../../../ui/other/dbError/dbError.jsx";
 
 import { getDataForEditPage } from "../../../../models/dbOperations/getDbData.js";
 
@@ -15,10 +16,22 @@ function Edit() {
   const [data, setData] = useState(null);
   // data loading status
   const [loading, setLoading] = useState(true);
+  // db operations error message
+  const [dbError, setDbError] = useState("");
 
   useEffect(() => {
-    getDataForEditPage(setData, setLoading);
+    getDataForEditPage(setData, setLoading, setDbError);
   }, []);
+
+  // if error, when loading data from server
+  if (dbError) {
+    console.error(`Loading error: ${dbError}`);
+    return (
+      <div id="edit" className={styles.container}>
+        <DbError message="Ошибка загрузки данных..." />
+      </div>
+    );
+  }
 
   return (
     <div id="edit" className={styles.container}>
