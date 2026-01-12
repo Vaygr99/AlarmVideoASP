@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import NewClient from "./clients/newClient/NewClient.jsx";
 import NewDevice from "./devices/newDevice/NewDevice.jsx";
+import Loader from "../../../ui/other/loader/Loader.jsx";
 
 import { getDataForEditPage } from "../../../../models/dbOperations/getDbData.js";
 
@@ -10,14 +11,20 @@ import styles from "./Edit.module.css";
 
 // Page for working with clients and devices
 function Edit() {
+  // data from server
   const [data, setData] = useState(null);
+  // data loading status
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getDataForEditPage(setData);
+    getDataForEditPage(setData, setLoading);
   }, []);
 
   return (
     <div id="edit" className={styles.container}>
+      {/* Loader animation */}
+      {loading && <Loader />}
+
       {/* Clients area */}
       <div className={styles.clients}>
         <h2>Клiєнти</h2>
