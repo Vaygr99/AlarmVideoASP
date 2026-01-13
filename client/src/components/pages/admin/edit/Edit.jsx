@@ -2,6 +2,7 @@ import { faTrashCan, faF } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 
 import NewClient from "./clients/newClient/NewClient.jsx";
+import FoundClients from "./clients/foundClients/FoundClients.jsx";
 import NewDevice from "./devices/newDevice/NewDevice.jsx";
 import Loader from "../../../ui/other/loader/Loader.jsx";
 import DbError from "../../../ui/other/dbError/dbError.jsx";
@@ -18,6 +19,8 @@ function Edit() {
   const [loading, setLoading] = useState(true);
   // db operations error message
   const [dbError, setDbError] = useState("");
+
+  const [clientName, setClientName] = useState("");
 
   useEffect(() => {
     getDataForEditPage(setData, setLoading, setDbError);
@@ -41,7 +44,7 @@ function Edit() {
       {/* Clients area */}
       <div className={styles.clients}>
         <h2>Клiєнти</h2>
-        <NewClient icons={{ faTrashCan, faF }} />
+        <NewClient setState={setClientName} icons={{ faTrashCan, faF }} />
       </div>
 
       {/* Devices area */}

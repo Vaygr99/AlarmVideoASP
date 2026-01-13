@@ -9,7 +9,7 @@ import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
 import styles from "./NewClient.module.css";
 
 // Add new client on edit page
-function NewClient({ icons }) {
+function NewClient({ icons, ...props }) {
   const [phone, setPhone] = useState("");
   return (
     <>
@@ -23,7 +23,7 @@ function NewClient({ icons }) {
             <span>
               <FontAwesomeIcon icon={icons.faF} />
             </span>
-            <IconInput placeholder="Назва об'єкту" icon={icons.faTrashCan} />
+            <IconInput {...props} placeholder="Назва об'єкту" icon={icons.faTrashCan} />
           </div>
         </div>
 
