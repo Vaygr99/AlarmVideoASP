@@ -9,10 +9,10 @@ function BaseInput({
 }) {
   return (
     <input
-      {...props}
       type={type}
       placeholder={placeholder}
       className={`${className} ${styles.container}`}
+      onChange={(e) => props.setState(e.target.value)}
     />
   );
 }
