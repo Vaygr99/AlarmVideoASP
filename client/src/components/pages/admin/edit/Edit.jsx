@@ -45,6 +45,7 @@ function Edit() {
       <div className={styles.clients}>
         <h2>Клiєнти</h2>
         <NewClient setState={setClientName} icons={{ faTrashCan, faF }} />
+        <FoundClients data={data} clientName={clientName} />
       </div>
 
       {/* Devices area */}
