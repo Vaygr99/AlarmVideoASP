@@ -3,10 +3,10 @@ const BaseButton = function ({
   children,
   className = "",
   type = "button",
-  ...props
+  onClick,
 }) {
   return (
-    <button {...props} className={className} type={type}>
+    <button onClick={onClick} className={className} type={type}>
       {children}
     </button>
   );

@@ -3,9 +3,9 @@ import BaseButton from "../BaseButton.jsx";
 import styles from "./TextButton.module.css";
 
 // Button template with text inside
-function TextButton({ text, className = "" }) {
+function TextButton({ text, className = "", ...props }) {
   return (
-    <BaseButton className={`${styles.container} ${className}`}>
+    <BaseButton {...props} className={`${styles.container} ${className}`}>
       <span>{text}</span>
     </BaseButton>
   );
