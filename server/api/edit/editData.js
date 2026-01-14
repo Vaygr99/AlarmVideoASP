@@ -1,4 +1,4 @@
-const { verifyClients } = require("./verify/verifyClients.js");
+const { verifyNewClient } = require("./verify/verifyClients.js");
 // CRUD endpoints for edit section
 function editData(app, db) {
   // app - express object
@@ -26,7 +26,7 @@ function editData(app, db) {
     try {
       const { name, phone, info } = req.body;
       // Verify data
-      if (!verifyClients(req.body)) {
+      if (!verifyNewClient(req.body)) {
         return res.status(400).json({ error: "Incorrect client data" });
       }
 
