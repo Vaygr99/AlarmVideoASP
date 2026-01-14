@@ -1,5 +1,5 @@
-// Add new client verification
-function verifyNewClient(data) {
+// Client verification
+function verifyClient(data) {
   if (!data) return false;
 
   // if no client name...
@@ -10,4 +10,4 @@ function verifyNewClient(data) {
   return true;
 }
 
-module.exports = { verifyNewClient };
+module.exports = verifyClient;
