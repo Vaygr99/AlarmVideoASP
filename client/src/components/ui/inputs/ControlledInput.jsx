@@ -6,7 +6,7 @@ function ControlledInput({
   type = "text",
   className = "",
   value,
-  setState,
+  onChange,
 }) {
   return (
     <input
@@ -14,7 +14,7 @@ function ControlledInput({
       type={type}
       placeholder={placeholder}
       className={`${className} ${styles.container}`}
-      onChange={(e) => setState(e.target.value)}
+      onChange={onChange}
     />
   );
 }
