@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { forwardRef } from "react";
 
 import BaseTextarea from "../BaseTextarea.jsx";
 import SquareIconButton from "../../buttons/squareIconButton/SquareIconButton.jsx";
@@ -6,13 +6,13 @@ import SquareIconButton from "../../buttons/squareIconButton/SquareIconButton.js
 import styles from "./IconTextarea.module.css";
 
 // Textarea template with icon after
-function IconTextarea({ placeholder = "", icon }) {
+const IconTextarea = forwardRef(function({ placeholder = "", icon }, ref) {
   return (
     <div className={styles.container}>
-      <BaseTextarea placeholder={placeholder} />
+      <BaseTextarea ref={ref} placeholder={placeholder} />
       <SquareIconButton icon={icon} />
     </div>
   );
-}
+});
 
 export default IconTextarea;
