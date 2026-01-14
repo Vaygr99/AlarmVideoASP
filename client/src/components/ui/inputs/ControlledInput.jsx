@@ -1,20 +1,22 @@
 import styles from "./BaseInput.module.css";
 
-// Basic input element
-function BaseInput({
+// Controlled input element
+function ControlledInput({
   placeholder = "",
   type = "text",
   className = "",
-  ...props
+  value,
+  setState,
 }) {
   return (
     <input
+      value={value}
       type={type}
       placeholder={placeholder}
       className={`${className} ${styles.container}`}
-      onChange={(e) => props.setState(e.target.value)}
+      onChange={(e) => setState(e.target.value)}
     />
   );
 }
 
-export default BaseInput;
+export default ControlledInput;
