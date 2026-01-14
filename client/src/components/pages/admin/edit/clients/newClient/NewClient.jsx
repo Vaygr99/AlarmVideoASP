@@ -8,11 +8,15 @@ import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
 
 import styles from "./NewClient.module.css";
 
+import { addNewClient } from "../../../../../../models/dbOperations/postDbData.js";
+
 // Add new client on edit page
-function NewClient({ icons, ...props }) {
+function NewClient({ icons, setData, setLoading, ...props }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const infoRef = useRef(null);
+  // Add new client error
+  const [newClientError, setNewClientError] = useState(false);
 
   return (
     <>
@@ -58,8 +62,22 @@ function NewClient({ icons, ...props }) {
 
         {/* Add new client button */}
         <div className={styles.saveData}>
-          <TextButton text="Зберегти" />
+          <TextButton
+            text="Добавить"
+            onClick={() =>
+              addNewClient(
+                name,
+                phone,
+                infoRef.current.value,
+                setData,
+                setLoading,
+                setNewClientError
+              )
+            }
+          />
         </div>
+        {/* Error message */}
+        {newClientError && <p>Ошибка добавления нового клиента</p>}
       </div>
     </>
   );

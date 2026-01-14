@@ -44,7 +44,12 @@ function Edit() {
       {/* Clients area */}
       <div className={styles.clients}>
         <h2>Клiєнти</h2>
-        <NewClient setState={setClientName} icons={{ faTrashCan, faF }} />
+        <NewClient
+          setState={setClientName}
+          icons={{ faTrashCan, faF }}
+          setData={setData}
+          setLoading={setLoading}
+        />
         <FoundClients data={data} clientName={clientName} icon={faTrashCan} />
       </div>
 
@@ -52,7 +57,7 @@ function Edit() {
       <div className={styles.devices}>
         <div>
           <h2>Обладнання</h2>
-          <NewDevice icons={{ faTrashCan, faF }} />
+          {/*<NewDevice icons={{ faTrashCan, faF }} />*/}
         </div>
       </div>
     </div>

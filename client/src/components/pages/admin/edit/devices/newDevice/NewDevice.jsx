@@ -1,5 +1,5 @@
 
-import IconInput from "../../../../../ui/inputs/iconInput/IconInput.jsx";
+//import IconInput from "../../../../../ui/inputs/iconInput/IconInput.jsx";
 import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
 
 import styles from "./NewDevice.module.css";
@@ -14,13 +14,13 @@ function NewDevice({ icons }) {
         {/* Device name */}
         <div className={styles.newData}>
           <span>Назва:</span>
-          <IconInput placeholder="Назва об'єкту" icon={icons.faTrashCan} />
+          {/*<IconInput placeholder="Назва об'єкту" icon={icons.faTrashCan} />*/}
         </div>
 
         {/* Device model */}
         <div className={styles.newData}>
           <span>Модель:</span>
-          <IconInput placeholder="Назва об'єкту" icon={icons.faTrashCan} />
+          {/*<IconInput placeholder="Назва об'єкту" icon={icons.faTrashCan} />*/}
         </div>
 
         {/* Add new client button */}

@@ -15,6 +15,11 @@
   font-size: 1.2rem;
 }
 
+.container p {
+  display: block;
+  font-size: 1.2rem;
+}
+
 .container span {
   font-size: 1.15rem;
 }
