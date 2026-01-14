@@ -4,7 +4,7 @@ import {
   faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
 
-import BaseInput from "../../../inputs/BaseInput.jsx";
+import ControlledInput from "../../../inputs/ControlledInput.jsx";
 import SquareIconButton from "../../../buttons/squareIconButton/SquareIconButton.jsx";
 
 import styles from "./PasswordInput.module.css";
@@ -14,7 +14,7 @@ function PasswordInput() {
   return (
     <div className={styles.container}>
       <span>10</span>
-      <BaseInput placeholder="пароль" />
+      <ControlledInput placeholder="пароль" />
       <SquareIconButton icon={faEye} />
       <SquareIconButton icon={faTrashCan} />
     </div>

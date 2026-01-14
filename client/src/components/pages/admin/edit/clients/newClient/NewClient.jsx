@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
-import IconInput from "../../../../../ui/inputs/iconInput/IconInput.jsx";
+import ControlledIconInput from "../../../../../ui/inputs/iconInput/ControlledIconInput.jsx";
 import IconTextarea from "../../../../../ui/inputs/iconTextarea/IconTextarea.jsx";
 import PhoneInput from "../../../../../ui/other/phoneInput/PhoneInput.jsx";
 import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
@@ -10,7 +10,10 @@ import styles from "./NewClient.module.css";
 
 // Add new client on edit page
 function NewClient({ icons, ...props }) {
+  const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const infoRef = useRef(null);
+
   return (
     <>
       {/* Add new client */}
@@ -23,7 +26,13 @@ function NewClient({ icons, ...props }) {
             <span>
               <FontAwesomeIcon icon={icons.faF} />
             </span>
-            <IconInput {...props} placeholder="Назва об'єкту" icon={icons.faTrashCan} />
+            <ControlledIconInput
+              {...props}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Назва об'єкту"
+              icon={icons.faTrashCan}
+            />
           </div>
         </div>
 
@@ -32,7 +41,7 @@ function NewClient({ icons, ...props }) {
           <span>Телефон:</span>
           <PhoneInput
             value={phone}
-            onChange={setPhone}
+            setState={setPhone}
             icon={icons.faTrashCan}
           />
         </div>
@@ -40,7 +49,11 @@ function NewClient({ icons, ...props }) {
         {/* Useful info */}
         <div className={styles.newData}>
           <span>Инфо:</span>
-          <IconTextarea placeholder="Информация" icon={icons.faTrashCan} />
+          <IconTextarea
+            ref={infoRef}
+            placeholder="Информация"
+            icon={icons.faTrashCan}
+          />
         </div>
 
         {/* Add new client button */}
