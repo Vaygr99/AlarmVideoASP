@@ -14,12 +14,12 @@ import styles from "./Edit.module.css";
 // Page for working with clients and devices
 function Edit() {
   // data from server
-  const [data, setData] = useState(null);
+  const [data, setData] = useState({});
   // data loading status
   const [loading, setLoading] = useState(true);
   // db operations error message
   const [dbError, setDbError] = useState("");
-
+  // name to search for other clients
   const [inputName, setInputName] = useState("");
 
   useEffect(() => {
@@ -51,7 +51,13 @@ function Edit() {
           setData={setData}
           setLoading={setLoading}
         />
-        <FoundClients data={data} inputName={inputName} icon={faTrashCan} />
+        <FoundClients
+          data={data}
+          setData={setData}
+          inputName={inputName}
+          setInputName={setInputName}
+          icon={faTrashCan}
+        />
       </div>
 
       {/* Devices area */}

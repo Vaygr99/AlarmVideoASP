@@ -3,7 +3,7 @@ import Client from "../client/Client.jsx";
 import styles from "./FoundClients.module.css";
 
 // Filter clients by current name
-function FoundClients({ data, inputName = "", icon }) {
+function FoundClients({ data, inputName = "", icon, ...props }) {
   // data - loaded data from server
   // clientName - entered client name
 
@@ -24,7 +24,7 @@ function FoundClients({ data, inputName = "", icon }) {
     <div className={styles.container}>
       <h2>Знайдено: {list.length}</h2>
       {list.map((elem, index) => (
-        <Client key={index} client={elem} icon={icon} />
+        <Client {...props} key={index} client={elem} icon={icon} />
       ))}
     </div>
   );
