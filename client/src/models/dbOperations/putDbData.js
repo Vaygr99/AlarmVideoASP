@@ -12,6 +12,7 @@ async function updateClient(
   // phone - update client phone
   // info - update client info (object, not .current.value)
   try {
+    setLoading(true);
     // if dublicate is found...
     if (
       updateClientDublicate(client._id, client.name, client.phone, data.clients)

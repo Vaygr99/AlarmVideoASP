@@ -17,6 +17,7 @@ async function addNewClient(
   // phone - new client phone
   // info - new client info (object, not .current.value)
   try {
+    setLoading(true);
     // if dublicate is found...
     if (newClientDublicate(name, phone, data.clients))
       throw new Error("Duplicate found by name or phone");
