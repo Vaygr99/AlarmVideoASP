@@ -47,6 +47,7 @@ function Edit() {
         <NewClient
           setState={setClientName}
           icons={{ faTrashCan, faF }}
+          data={data}
           setData={setData}
           setLoading={setLoading}
         />

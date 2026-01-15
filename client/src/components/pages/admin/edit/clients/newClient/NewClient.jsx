@@ -11,13 +11,12 @@ import styles from "./NewClient.module.css";
 import { addNewClient } from "../../../../../../models/dbOperations/postDbData.js";
 
 // Add new client on edit page
-function NewClient({ icons, setData, setLoading, ...props }) {
+function NewClient({ icons, data, setData, setLoading, ...props }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const infoRef = useRef(null);
   // Add new client error
   const [newClientError, setNewClientError] = useState(false);
-
   return (
     <>
       {/* Add new client */}
@@ -67,8 +66,11 @@ function NewClient({ icons, setData, setLoading, ...props }) {
             onClick={() =>
               addNewClient(
                 name,
+                setName,
                 phone,
-                infoRef.current.value,
+                setPhone,
+                infoRef,
+                data,
                 setData,
                 setLoading,
                 setNewClientError
