@@ -1,4 +1,4 @@
-import { clientDublicate } from "../dublicates.js";
+import { newClientDublicate } from "../dublicates.js";
 
 // Add new client on edit page
 async function addNewClient(
@@ -18,7 +18,7 @@ async function addNewClient(
   // info - new client info (object, not .current.value)
   try {
     // if dublicate is found...
-    if (clientDublicate(name, phone, data.clients))
+    if (newClientDublicate(name, phone, data.clients))
       throw new Error("Duplicate found by name or phone");
 
     // add new client
