@@ -5,11 +5,10 @@ import styles from "./FoundClients.module.css";
 // Filter clients by current name
 function FoundClients({ data, inputName = "", icon, ...props }) {
   // data - loaded data from server
-  // clientName - entered client name
-
+  
   // filter clients by current client name
   const list =
-    inputName && data?.clients
+    inputName && data.clients
       ? data.clients.filter((elem) =>
           elem.name.toLowerCase().includes(inputName.toLowerCase())
         )
@@ -23,8 +22,14 @@ function FoundClients({ data, inputName = "", icon, ...props }) {
   return (
     <div className={styles.container}>
       <h2>Знайдено: {list.length}</h2>
-      {list.map((elem, index) => (
-        <Client {...props} key={index} client={elem} icon={icon} />
+      {list.map((elem) => (
+        <Client
+          key={elem._id}
+          {...props}
+          data={data}
+          client={elem}
+          icon={icon}
+        />
       ))}
     </div>
   );

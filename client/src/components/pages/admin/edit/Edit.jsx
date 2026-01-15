@@ -54,8 +54,8 @@ function Edit() {
         <FoundClients
           data={data}
           setData={setData}
+          setLoading={setLoading}
           inputName={inputName}
-          setInputName={setInputName}
           icon={faTrashCan}
         />
       </div>

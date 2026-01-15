@@ -3,16 +3,28 @@ import { useState, useEffect, useRef } from "react";
 import UncontrolledIconInput from "../../../../../ui/inputs/iconInput/UncontrolledIconInput.jsx";
 import PhoneInput from "../../../../../ui/other/phoneInput/PhoneInput.jsx";
 import IconTextarea from "../../../../../ui/inputs/iconTextarea/IconTextarea.jsx";
+import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
 
 import styles from "./Client.module.css";
 
+import { updateClient } from "../../../../../../models/dbOperations/putDbData.js";
+
 // One of clients, found by name filter
-function Client({ client = {}, icon }) {
+function Client({
+  data,
+  setData,
+  setLoading,
+  client = {},
+  icon,
+}) {
   // client - client object (properties: _id, name, phone, info)
 
   const [phone, setPhone] = useState(client.phone);
   const nameRef = useRef(null);
   const infoRef = useRef(null);
+
+  // Update client error
+  const [updateClientError, setUpdateClientError] = useState(false);
 
   useEffect(() => {
     nameRef.current.value = client.name;
@@ -43,6 +55,29 @@ function Client({ client = {}, icon }) {
           <span>Инфо:</span>
           <IconTextarea ref={infoRef} placeholder="Информация" icon={icon} />
         </div>
+
+        {/* Update client button */}
+        <div>
+          <TextButton
+            text="Обновить"
+            onClick={() =>
+              updateClient(
+                {
+                  _id: client._id,
+                  name: nameRef.current.value,
+                  phone,
+                  info: infoRef.current.value,
+                },
+                data,
+                setData,
+                setLoading,
+                setUpdateClientError
+              )
+            }
+          />
+        </div>
+        {/* Error message */}
+        {updateClientError && <p>Ошибка добавления нового клиента</p>}
       </div>
     </div>
   );
