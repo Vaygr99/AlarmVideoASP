@@ -20,7 +20,7 @@ function Edit() {
   // db operations error message
   const [dbError, setDbError] = useState("");
 
-  const [clientName, setClientName] = useState("");
+  const [inputName, setInputName] = useState("");
 
   useEffect(() => {
     getDataForEditPage(setData, setLoading, setDbError);
@@ -45,13 +45,13 @@ function Edit() {
       <div className={styles.clients}>
         <h2>Клiєнти</h2>
         <NewClient
-          setState={setClientName}
+          setInputName={setInputName}
           icons={{ faTrashCan, faF }}
           data={data}
           setData={setData}
           setLoading={setLoading}
         />
-        <FoundClients data={data} clientName={clientName} icon={faTrashCan} />
+        <FoundClients data={data} inputName={inputName} icon={faTrashCan} />
       </div>
 
       {/* Devices area */}

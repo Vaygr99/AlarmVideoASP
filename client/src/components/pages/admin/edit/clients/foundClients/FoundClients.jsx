@@ -3,15 +3,15 @@ import Client from "../client/Client.jsx";
 import styles from "./FoundClients.module.css";
 
 // Filter clients by current name
-function FoundClients({ data, clientName = "", icon }) {
+function FoundClients({ data, inputName = "", icon }) {
   // data - loaded data from server
   // clientName - entered client name
 
   // filter clients by current client name
   const list =
-    clientName && data?.clients
+    inputName && data?.clients
       ? data.clients.filter((elem) =>
-          elem.name.toLowerCase().includes(clientName.toLowerCase())
+          elem.name.toLowerCase().includes(inputName.toLowerCase())
         )
       : [];
 

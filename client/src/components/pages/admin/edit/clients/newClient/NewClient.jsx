@@ -11,7 +11,14 @@ import styles from "./NewClient.module.css";
 import { addNewClient } from "../../../../../../models/dbOperations/postDbData.js";
 
 // Add new client on edit page
-function NewClient({ icons, data, setData, setLoading, ...props }) {
+function NewClient({
+  icons,
+  setInputName,
+  data,
+  setData,
+  setLoading,
+  ...props
+}) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const infoRef = useRef(null);
@@ -32,7 +39,10 @@ function NewClient({ icons, data, setData, setLoading, ...props }) {
             <ControlledIconInput
               {...props}
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => {
+                setName(e.target.value);
+                setInputName(e.target.value);
+              }}
               placeholder="Назва об'єкту"
               icon={icons.faTrashCan}
             />
@@ -67,6 +77,7 @@ function NewClient({ icons, data, setData, setLoading, ...props }) {
               addNewClient(
                 name,
                 setName,
+                setInputName,
                 phone,
                 setPhone,
                 infoRef,

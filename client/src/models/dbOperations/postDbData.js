@@ -4,6 +4,7 @@ import { clientDublicate } from "../dublicates.js";
 async function addNewClient(
   name,
   setName,
+  setInputName,
   phone,
   setPhone,
   info,
@@ -52,6 +53,7 @@ async function addNewClient(
     }));
     // clear inputs
     setName("");
+    setInputName("");
     setPhone("");
     info.current.value = "";
     // no error message
