@@ -30,8 +30,14 @@ function editData(app, db) {
         return res.status(400).json({ error: "Incorrect client data" });
       }
 
-      await db.collection("clients").insertOne({ name, phone, info });
-      res.status(201).json({ message: "New client added successfully" });
+      const result = await db
+        .collection("clients")
+        .insertOne({ name, phone, info });
+      res.status(201).json({
+        // return id as an answer
+        id: result.insertedId,
+        message: "New client added successfully",
+      });
     } catch (error) {
       console.error("Error adding client:", error.message);
       res.status(500).json({ error: "Server error while adding client" });
