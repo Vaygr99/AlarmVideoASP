@@ -8,15 +8,10 @@ import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
 import styles from "./Client.module.css";
 
 import { updateClient } from "../../../../../../models/dbOperations/putDbData.js";
+import { deleteClient } from "../../../../../../models/dbOperations/deleteDbData.js";
 
 // One of clients, found by name filter
-function Client({
-  data,
-  setData,
-  setLoading,
-  client = {},
-  icon,
-}) {
+function Client({ data, setData, setLoading, client = {}, icon }) {
   // client - client object (properties: _id, name, phone, info)
 
   const [phone, setPhone] = useState(client.phone);
@@ -25,6 +20,8 @@ function Client({
 
   // Update client error
   const [updateClientError, setUpdateClientError] = useState(false);
+  // Delete client error
+  const [deleteClientError, setDeleteClientError] = useState(false);
 
   useEffect(() => {
     nameRef.current.value = client.name;
@@ -76,8 +73,23 @@ function Client({
             }
           />
         </div>
+        {/* Delete client button */}
+        <div>
+          <TextButton
+            text="Удалить"
+            onClick={() =>
+              deleteClient(
+                client._id,
+                setData,
+                setDeleteClientError,
+                setLoading
+              )
+            }
+          />
+        </div>
         {/* Error message */}
-        {updateClientError && <p>Ошибка добавления нового клиента</p>}
+        {updateClientError && <p>Ошибка изменения клиента</p>}
+        {deleteClientError && <p>Ошибка удаления клиента</p>}
       </div>
     </div>
   );
