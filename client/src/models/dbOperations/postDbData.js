@@ -46,6 +46,7 @@ async function addNewClient(
       clients: [
         ...prev.clients,
         {
+          _id: answer.id,
           name,
           phone,
           info: info.current.value,
