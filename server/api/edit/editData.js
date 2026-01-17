@@ -1,8 +1,11 @@
 const {
   newDeviceDublicate,
 } = require("../../models/dublicates/devicesDublicates.js");
+const {
+  newClientDublicate,
+} = require("../../models/dublicates/clientsDublicates.js");
 
-const verifyClient = require("./verify/verifyClient.js");
+const { verifyNewClient } = require("./verify/verifyClients.js");
 const { verifyNewDevice } = require("./verify/verifyDevices.js");
 // CRUD endpoints for edit section
 function editData(app, db) {
@@ -30,9 +33,16 @@ function editData(app, db) {
   app.post("/edit-data/clients/new", async (req, res) => {
     try {
       const { name, phone, info } = req.body;
+
+      const clients = await db.collection("clients").find().toArray();
+
       // Verify data
-      if (!verifyClient(req.body)) {
+      if (!verifyNewClient(name, phone)) {
         return res.status(400).json({ error: "Incorrect client data" });
+      }
+      // is dublicate
+      if (newClientDublicate(name, phone, clients)) {
+        return res.status(400).json({ error: "Dublicate client data" });
       }
 
       const result = await db
