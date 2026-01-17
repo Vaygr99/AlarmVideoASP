@@ -1,4 +1,9 @@
+const {
+  newDeviceDublicate,
+} = require("../../models/dublicates/devicesDublicates.js");
+
 const verifyClient = require("./verify/verifyClient.js");
+const { verifyNewDevice } = require("./verify/verifyDevices.js");
 // CRUD endpoints for edit section
 function editData(app, db) {
   // app - express object
@@ -109,6 +114,17 @@ function editData(app, db) {
     try {
       const { name, model, model_id } = req.body;
       // model_id - new model id
+
+      const devices = await db.collection("devices").find().toArray();
+
+      // Verify data
+      if (!verifyNewDevice(name, model)) {
+        return res.status(400).json({ error: "Incorrect device data" });
+      }
+      // is dublicate
+      if (newDeviceDublicate(name, model, devices)) {
+        return res.status(400).json({ error: "Dublicate device data" });
+      }
 
       const result = await db
         .collection("devices")
