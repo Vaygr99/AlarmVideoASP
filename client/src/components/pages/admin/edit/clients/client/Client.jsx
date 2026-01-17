@@ -32,9 +32,9 @@ function Client({ data, setData, setLoading, client = {}, icon }) {
     <div className={styles.container}>
       <div>
         {/* Customer */}
-        <div className={styles.newData}>
+        <div className={styles.data}>
           <span>Заказчик:</span>
-          <div className={styles.newClient}>
+          <div className={styles.client}>
             <UncontrolledIconInput
               placeholder="Назва об'єкту"
               icon={icon}
@@ -43,18 +43,20 @@ function Client({ data, setData, setLoading, client = {}, icon }) {
           </div>
         </div>
         {/* Client phone */}
-        <div className={styles.newData}>
+        <div className={styles.data}>
           <span>Телефон:</span>
-          <PhoneInput value={phone} setState={setPhone} icon={icon} />
+          <div className={styles.phone}>
+            <PhoneInput value={phone} setState={setPhone} icon={icon} />
+          </div>
         </div>
         {/* Useful info */}
-        <div className={styles.newData}>
+        <div className={`${styles.data} ${styles.textarea}`}>
           <span>Инфо:</span>
           <IconTextarea ref={infoRef} placeholder="Информация" icon={icon} />
         </div>
 
-        {/* Update client button */}
-        <div>
+        <div className={styles.buttons}>
+          {/* Update client button */}
           <TextButton
             text="Обновить"
             onClick={() =>
@@ -72,9 +74,7 @@ function Client({ data, setData, setLoading, client = {}, icon }) {
               )
             }
           />
-        </div>
-        {/* Delete client button */}
-        <div>
+          {/* Delete client button */}
           <TextButton
             text="Удалить"
             onClick={() =>
@@ -87,6 +87,7 @@ function Client({ data, setData, setLoading, client = {}, icon }) {
             }
           />
         </div>
+
         {/* Error message */}
         {updateClientError && <p>Ошибка изменения клиента</p>}
         {deleteClientError && <p>Ошибка удаления клиента</p>}

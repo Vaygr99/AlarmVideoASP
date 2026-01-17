@@ -17,7 +17,7 @@ function editData(app, db) {
       console.error("Error getting data for edit section:", error.message);
       res
         .status(500)
-        .json({ error: "Server error while download data for edit section" });
+        .json({ error: "Server error while download data for edit page" });
     }
   });
 

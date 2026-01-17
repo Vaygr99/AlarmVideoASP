@@ -21,7 +21,7 @@ async function updateClient(
 
     // update client
     const result = await fetch(
-      `http://localhost:4000/edit-data/clients/update/${client._id}`,
+      `http://localhost:4000/edit-data/clients/update1/${client._id}`,
       {
         method: "PUT",
         headers: {

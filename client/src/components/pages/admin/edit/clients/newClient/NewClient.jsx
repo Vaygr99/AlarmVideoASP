@@ -52,15 +52,17 @@ function NewClient({
         {/* Client phone */}
         <div className={styles.newData}>
           <span>Телефон:</span>
-          <PhoneInput
-            value={phone}
-            setState={setPhone}
-            icon={icons.faTrashCan}
-          />
+          <div className={styles.newPhone}>
+            <PhoneInput
+              value={phone}
+              setState={setPhone}
+              icon={icons.faTrashCan}
+            />
+          </div>
         </div>
 
         {/* Useful info */}
-        <div className={styles.newData}>
+        <div className={`${styles.newData} ${styles.newTextarea}`}>
           <span>Инфо:</span>
           <IconTextarea
             ref={infoRef}

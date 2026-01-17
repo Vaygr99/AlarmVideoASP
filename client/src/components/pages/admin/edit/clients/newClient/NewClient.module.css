@@ -11,7 +11,7 @@
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
-  margin-bottom: 5px;
+  margin-bottom: 0.3rem;
   font-size: 1.2rem;
 }
 
@@ -27,20 +27,34 @@
 .newData {
   display: flex;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 0.6rem;
 }
+
+.newData > span {
+  width: 7rem;
+}
+
+.newTextarea > span {
+  display: inline-flex;
+  align-self: flex-start;
+}
+
 .newClient {
   display: flex;
   width: 100%;
 }
+
 .newClient span {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
+.newPhone {
+  width: 100%;
+}
+
 .saveData {
   display: flex;
   justify-content: flex-end;
-  margin-top: 0.5rem;
 }
