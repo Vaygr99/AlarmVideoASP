@@ -1,4 +1,6 @@
-import { newClientDublicate } from "../dublicates.js";
+import { v4 as generateId } from "uuid";
+
+import { newClientDublicate, newDeviceDublicate } from "../dublicates.js";
 
 // Add new client on edit page
 async function addNewClient(
@@ -69,4 +71,71 @@ async function addNewClient(
   }
 }
 
-export { addNewClient };
+// Add new device on edit page
+async function addNewDevice(
+  name,
+  setName,
+  setInputName,
+  model,
+  data,
+  setData,
+  setLoading,
+  setNewDeviceError
+) {
+  // name - new device name
+  // model - new device model (object, not .current.value)
+  try {
+    // new model id
+    const newId = generateId();
+
+    setLoading(true);
+    // if dublicate is found...
+    if (newDeviceDublicate(name, model, data.devices))
+      throw new Error("Duplicate found by name or model");
+
+    // add new device
+    const result = await fetch("http://localhost:4000/edit-data/devices/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        model: model.current.value,
+        model_id: newId,
+      }),
+    });
+
+    // get messages from server
+    const answer = await result.json();
+
+    if (!result.ok) throw new Error(answer.error || "Add new device Error");
+
+    // add new device to root object
+    setData((prev) => ({
+      ...prev,
+      devices: [
+        ...prev.devices,
+        {
+          _id: answer.id,
+          name,
+          models: [{ id: newId, model: model.current.value }],
+        },
+      ],
+    }));
+    // clear inputs
+    setName("");
+    setInputName("");
+    model.current.value = "";
+    // no error message
+    setNewDeviceError(false);
+  } catch (err) {
+    setNewDeviceError(true);
+    console.log(err.message);
+  } finally {
+    // remove loading animation
+    setLoading(false);
+  }
+}
+
+export { addNewClient, addNewDevice };
