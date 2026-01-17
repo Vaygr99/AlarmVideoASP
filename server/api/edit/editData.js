@@ -101,6 +101,28 @@ function editData(app, db) {
       res.status(500).json({ error: "Server error" });
     }
   });
+
+  //---------------------------------------------------------------------
+
+  // Add new device
+  app.post("/edit-data/devices/new", async (req, res) => {
+    try {
+      const { name, model, model_id } = req.body;
+      // model_id - new model id
+
+      const result = await db
+        .collection("devices")
+        .insertOne({ name, models: [{ id: model_id, model }] });
+      res.status(201).json({
+        // return id as an answer
+        id: result.insertedId,
+        message: "New device added successfully",
+      });
+    } catch (error) {
+      console.error("Error adding device:", error.message);
+      res.status(500).json({ error: "Server error while adding device" });
+    }
+  });
 }
 
 module.exports = editData;
