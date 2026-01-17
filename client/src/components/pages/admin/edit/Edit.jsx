@@ -21,6 +21,8 @@ function Edit() {
   const [dbError, setDbError] = useState("");
   // name to search for other clients
   const [inputName, setInputName] = useState("");
+  // name to search for other devices
+  const [inputDeviceName, setInputDeviceName] = useState("");
 
   useEffect(() => {
     getDataForEditPage(setData, setLoading, setDbError);
@@ -64,7 +66,13 @@ function Edit() {
       <div className={styles.devices}>
         <div>
           <h2>Обладнання</h2>
-          {/*<NewDevice icons={{ faTrashCan, faF }} />*/}
+          <NewDevice
+          setInputName={setInputDeviceName}
+          icons={{ faTrashCan }}
+          data={data}
+          setData={setData}
+          setLoading={setLoading}
+        />
         </div>
       </div>
     </div>
