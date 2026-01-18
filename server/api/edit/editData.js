@@ -1,8 +1,11 @@
+const { ObjectId } = require("mongodb");
+
 const {
   newDeviceDublicate,
 } = require("../../models/dublicates/devicesDublicates.js");
 const {
   newClientDublicate,
+  updateClientDublicate,
 } = require("../../models/dublicates/clientsDublicates.js");
 
 const { verifyClient } = require("../../models/verify/verifyClients.js");
@@ -11,8 +14,6 @@ const { verifyNewDevice } = require("../../models/verify/verifyDevices.js");
 function editData(app, db) {
   // app - express object
   // db - mongodb object
-
-  const { ObjectId } = require("mongodb");
 
   // Get data from clients, devices and offers collections
   app.get("/edit-data", async (req, res) => {
@@ -62,6 +63,7 @@ function editData(app, db) {
   // Update client
   app.put("/edit-data/clients/update/:id", async (req, res) => {
     try {
+      const { id } = req.params;
       const { name, phone } = req.body;
       const clients = await db.collection("clients").find().toArray();
 
@@ -69,12 +71,12 @@ function editData(app, db) {
       if (!verifyClient(name, phone)) {
         return res.status(400).json({ error: "Incorrect client data" });
       }
+
       // is dublicate
-      if (newClientDublicate(name, phone, clients)) {
+      if (updateClientDublicate(id, name, phone, clients)) {
         return res.status(400).json({ error: "Dublicate client data" });
       }
 
-      const { id } = req.params;
       const updateData = req.body;
       // Check for data availability
       if (!updateData || Object.keys(updateData).length === 0) {
@@ -95,7 +97,7 @@ function editData(app, db) {
 
       res.status(200).json({ message: "Client updated successfully" });
     } catch (err) {
-      console.error("Error updating client:", err.message);
+      console.error("Error updating client:", err);
       res.status(500).json({ error: "Server error" });
     }
   });
