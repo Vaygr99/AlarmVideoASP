@@ -1,9 +1,22 @@
-import Model from "./Model.jsx";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
+import Model from "./Model.jsx";
+import SquareIconButton from "../../../../../ui/buttons/squareIconButton/SquareIconButton.jsx";
+
+import styles from "./ModelsList.module.css";
+
+// Models list
 function ModelsList() {
   return (
-    <div>
+    <div className={styles.container}>
+      <p>Модель:</p>
       <Model />
+      <Model />
+      {/* button for adding new model */}
+      <SquareIconButton
+        icon={faPlus}
+        className={`${styles.add} top-square-button`}
+      />
     </div>
   );
 }

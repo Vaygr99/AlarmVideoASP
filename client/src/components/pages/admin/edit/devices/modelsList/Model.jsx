@@ -1,12 +1,14 @@
-import { faPlus, faMinus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 import SquareIconButton from "../../../../../ui/buttons/squareIconButton/SquareIconButton.jsx";
 import UncontrolledIconInput from "../../../../../ui/inputs/iconInput/UncontrolledIconInput.jsx";
 
+import styles from "./Model.module.css";
+
+// Row with model template (input + button)
 function Model() {
   return (
-    <div>
-      <SquareIconButton icon={faPlus} className="top-square-button" />
+    <div className={styles.container}>
       <UncontrolledIconInput
         //ref={modelRef}
         placeholder="Модель"

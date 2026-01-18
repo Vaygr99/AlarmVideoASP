@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  padding-left: 1.78rem;
+}
+
+.container > button {
+  font-size: 1.87rem;
+  width: 1.87rem;
+  height: 1.87rem;
+  border: 0;
+}
+
