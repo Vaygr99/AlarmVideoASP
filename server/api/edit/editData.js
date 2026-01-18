@@ -5,8 +5,8 @@ const {
   newClientDublicate,
 } = require("../../models/dublicates/clientsDublicates.js");
 
-const { verifyClient } = require("./verify/verifyClients.js");
-const { verifyNewDevice } = require("./verify/verifyDevices.js");
+const { verifyClient } = require("../../models/verify/verifyClients.js");
+const { verifyNewDevice } = require("../../models/verify/verifyDevices.js");
 // CRUD endpoints for edit section
 function editData(app, db) {
   // app - express object
