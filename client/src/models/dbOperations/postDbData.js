@@ -1,7 +1,5 @@
 import { v4 as generateId } from "uuid";
 
-import { newClientDublicate, newDeviceDublicate } from "../dublicates.js";
-
 // Add new client on edit page
 async function addNewClient(
   name,
@@ -20,9 +18,6 @@ async function addNewClient(
   // info - new client info (object, not .current.value)
   try {
     setLoading(true);
-    // if dublicate is found...
-    if (newClientDublicate(name, phone, data.clients))
-      throw new Error("Duplicate found by name or phone");
 
     // add new client
     const result = await fetch("http://localhost:4000/edit-data/clients/new", {
@@ -89,9 +84,6 @@ async function addNewDevice(
     const newId = generateId();
 
     setLoading(true);
-    // if dublicate is found...
-    if (newDeviceDublicate(name, model, data.devices))
-      throw new Error("Duplicate found by name or model");
 
     // add new device
     const result = await fetch("http://localhost:4000/edit-data/devices/new", {

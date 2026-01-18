@@ -1,5 +1,3 @@
-import { updateClientDublicate } from "../dublicates.js";
-
 // Update client on edit page
 async function updateClient(
   client,
@@ -13,15 +11,10 @@ async function updateClient(
   // info - update client info (object, not .current.value)
   try {
     setLoading(true);
-    // if dublicate is found...
-    if (
-      updateClientDublicate(client._id, client.name, client.phone, data.clients)
-    )
-      throw new Error("Duplicate found by name or phone");
 
     // update client
     const result = await fetch(
-      `http://localhost:4000/edit-data/clients/update1/${client._id}`,
+      `http://localhost:4000/edit-data/clients/update/${client._id}`,
       {
         method: "PUT",
         headers: {
