@@ -8,4 +8,17 @@ function newClientDublicate(newName, newPhone, clients) {
   return names.includes(newName) || phones.includes(newPhone);
 }
 
-module.exports = { newClientDublicate };
+// find dublicates for updating client - by name or phone
+function updateClientDublicate(id, name, phone, clients) {
+  // id - id of updating client
+
+  // find all clients except of current (with our id)
+  const found = clients.filter((elem) => elem._id !== id);
+
+  return (
+    found.some((elem) => elem.name === name) ||
+    found.some((elem) => elem.phone === phone)
+  );
+}
+
+module.exports = { newClientDublicate, updateClientDublicate };

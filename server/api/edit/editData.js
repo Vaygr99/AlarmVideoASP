@@ -5,7 +5,7 @@ const {
   newClientDublicate,
 } = require("../../models/dublicates/clientsDublicates.js");
 
-const { verifyNewClient } = require("./verify/verifyClients.js");
+const { verifyClient } = require("./verify/verifyClients.js");
 const { verifyNewDevice } = require("./verify/verifyDevices.js");
 // CRUD endpoints for edit section
 function editData(app, db) {
@@ -37,7 +37,7 @@ function editData(app, db) {
       const clients = await db.collection("clients").find().toArray();
 
       // Verify data
-      if (!verifyNewClient(name, phone)) {
+      if (!verifyClient(name, phone)) {
         return res.status(400).json({ error: "Incorrect client data" });
       }
       // is dublicate
@@ -62,9 +62,16 @@ function editData(app, db) {
   // Update client
   app.put("/edit-data/clients/update/:id", async (req, res) => {
     try {
+      const { name, phone } = req.body;
+      const clients = await db.collection("clients").find().toArray();
+
       // Verify data
-      if (!verifyClient(req.body)) {
+      if (!verifyClient(name, phone)) {
         return res.status(400).json({ error: "Incorrect client data" });
+      }
+      // is dublicate
+      if (newClientDublicate(name, phone, clients)) {
+        return res.status(400).json({ error: "Dublicate client data" });
       }
 
       const { id } = req.params;

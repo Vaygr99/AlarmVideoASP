@@ -1,5 +1,5 @@
 // Client verification
-function verifyNewClient(name = "", phone = "") {
+function verifyClient(name = "", phone = "") {
   // if no client name...
   if (!name) return false;
   // if phone length isn't 17
@@ -8,4 +8,4 @@ function verifyNewClient(name = "", phone = "") {
   return true;
 }
 
-module.exports = { verifyNewClient };
+module.exports = { verifyClient };
