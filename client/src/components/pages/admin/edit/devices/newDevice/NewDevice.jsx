@@ -32,7 +32,7 @@ function NewDevice({
         {/* Device */}
         <div className={styles.newData}>
           <span>Устройство:</span>
-          <div className={styles.newClient}>
+          <div className={styles.newDevice}>
             <ControlledIconInput
               {...props}
               value={name}

@@ -11,7 +11,12 @@
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
-  margin-bottom: 5px;
+  margin-bottom: 0.3rem;
+  font-size: 1.2rem;
+}
+
+.container p {
+  display: block;
   font-size: 1.2rem;
 }
 
@@ -22,11 +27,25 @@
 .newData {
   display: flex;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 0.6rem;
+}
+
+.newData > span {
+  width: 8rem;
+}
+
+.newDevice {
+  display: flex;
+  width: 100%;
+}
+
+.newDevice span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .saveData {
   display: flex;
   justify-content: flex-end;
-  margin-top: 0.5rem;
 }
