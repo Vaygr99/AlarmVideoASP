@@ -3,6 +3,7 @@ import { useState, useRef } from "react";
 
 import ControlledIconInput from "../../../../../ui/inputs/iconInput/ControlledIconInput.jsx";
 import UncontrolledIconInput from "../../../../../ui/inputs/iconInput/UncontrolledIconInput.jsx";
+import ModelsList from "../modelsList/ModelsList.jsx";
 
 import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
 
@@ -46,8 +47,11 @@ function NewDevice({
           </div>
         </div>
 
+        {/* Models list */}
+        <ModelsList />
 
         {/* Model */}
+        {/*
         <div className={styles.newData}>
           <span>Модель:</span>
           <UncontrolledIconInput
@@ -56,6 +60,7 @@ function NewDevice({
             icon={icons.faTrashCan}
           />
         </div>
+        */}
 
         {/* Add new device button */}
         <div className={styles.saveData}>
