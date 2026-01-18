@@ -38,7 +38,7 @@ function Client({ data, setData, setLoading, client = {}, icon }) {
             <UncontrolledIconInput
               placeholder="Назва об'єкту"
               icon={icon}
-              ref={nameRef}
+              inputRef={nameRef}
             />
           </div>
         </div>
@@ -52,7 +52,7 @@ function Client({ data, setData, setLoading, client = {}, icon }) {
         {/* Useful info */}
         <div className={`${styles.data} ${styles.textarea}`}>
           <span>Инфо:</span>
-          <IconTextarea ref={infoRef} placeholder="Информация" icon={icon} />
+          <IconTextarea textareaRef={infoRef} placeholder="Информация" icon={icon} />
         </div>
 
         <div className={styles.buttons}>

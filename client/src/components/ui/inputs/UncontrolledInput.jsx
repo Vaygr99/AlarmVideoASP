@@ -1,20 +1,20 @@
-import { forwardRef } from "react";
-
 import styles from "./BaseInput.module.css";
 
-// Controlled input element
-const ControlledInput = forwardRef(function (
-  { placeholder = "", type = "text", className = "" },
-  ref
-) {
+// Uncontrolled input element
+function UncontrolledInput({
+  placeholder = "",
+  type = "text",
+  className = "",
+  inputRef,
+}) {
   return (
     <input
-      ref={ref}
+      ref={inputRef}
       type={type}
       placeholder={placeholder}
       className={`${className} ${styles.container}`}
     />
   );
-});
+}
 
-export default ControlledInput;
+export default UncontrolledInput;

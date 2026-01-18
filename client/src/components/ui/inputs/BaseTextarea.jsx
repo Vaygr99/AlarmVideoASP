@@ -1,17 +1,15 @@
-import { forwardRef } from "react";
-
 import styles from "./BaseTextarea.module.css";
 
 // Basic textarea element
-const BaseTextarea = forwardRef(function ({ placeholder }, ref) {
+function BaseTextarea({ placeholder, textareaRef }) {
   return (
     <textarea
-      ref={ref}
+      ref={textareaRef}
       wrap="hard"
-      placeholder={placeholder ?? ""}
+      placeholder={placeholder}
       className={styles.container}
     />
   );
-});
+}
 
 export default BaseTextarea;

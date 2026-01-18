@@ -1,18 +1,16 @@
-import { forwardRef } from "react";
-
 import BaseTextarea from "../BaseTextarea.jsx";
 import SquareIconButton from "../../buttons/squareIconButton/SquareIconButton.jsx";
 
 import styles from "./IconTextarea.module.css";
 
 // Textarea template with icon after
-const IconTextarea = forwardRef(function({ placeholder = "", icon }, ref) {
+function IconTextarea({ placeholder = "", icon, textareaRef }) {
   return (
     <div className={styles.container}>
-      <BaseTextarea ref={ref} placeholder={placeholder} />
+      <BaseTextarea textareaRef={textareaRef} placeholder={placeholder} />
       <SquareIconButton icon={icon} />
     </div>
   );
-});
+}
 
 export default IconTextarea;

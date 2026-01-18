@@ -37,6 +37,9 @@ async function addNewClient(
 
     if (!result.ok) throw new Error(answer.error || "Add new client Error");
 
+    // Copy for setData, since it is valid later than info.current.value = "".
+    // This way we can save data in a local object.
+    const textarea = info.current.value;
     // add new client to root object
     setData((prev) => ({
       ...prev,
@@ -46,7 +49,7 @@ async function addNewClient(
           _id: answer.id,
           name,
           phone,
-          info: info.current.value,
+          info: textarea,
         },
       ],
     }));

@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import ControlledIconInput from "../../../../../ui/inputs/iconInput/ControlledIconInput.jsx";
 import IconTextarea from "../../../../../ui/inputs/iconTextarea/IconTextarea.jsx";
@@ -22,6 +22,7 @@ function NewClient({
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const infoRef = useRef(null);
+
   // Add new client error
   const [newClientError, setNewClientError] = useState(false);
   return (
@@ -65,7 +66,7 @@ function NewClient({
         <div className={`${styles.newData} ${styles.newTextarea}`}>
           <span>Инфо:</span>
           <IconTextarea
-            ref={infoRef}
+            textareaRef={infoRef}
             placeholder="Информация"
             icon={icons.faTrashCan}
           />
