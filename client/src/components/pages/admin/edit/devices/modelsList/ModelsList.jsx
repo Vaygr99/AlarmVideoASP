@@ -6,12 +6,20 @@ import SquareIconButton from "../../../../../ui/buttons/squareIconButton/SquareI
 import styles from "./ModelsList.module.css";
 
 // Models list
-function ModelsList() {
+function ModelsList({ models, setModels }) {
+  // change value of model input
+  const updateModel = (id, value) => {
+    setModels((prew) =>
+      prew.map((elem) => (elem.id === id ? { ...elem, model: value } : elem))
+    );
+  };
+
   return (
     <div className={styles.container}>
       <p>Модель:</p>
-      <Model />
-      <Model />
+      {models.map((elem) => (
+        <Model key={elem.id} model={elem} updateModel={updateModel} />
+      ))}
       {/* button for adding new model */}
       <SquareIconButton
         icon={faPlus}

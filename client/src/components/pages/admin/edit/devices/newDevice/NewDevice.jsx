@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useRef } from "react";
+import {v4 as uuidv4} from "uuid";
 
 import ControlledIconInput from "../../../../../ui/inputs/iconInput/ControlledIconInput.jsx";
 import UncontrolledIconInput from "../../../../../ui/inputs/iconInput/UncontrolledIconInput.jsx";
@@ -23,6 +24,9 @@ function NewDevice({
   const [name, setName] = useState("");
   const modelRef = useRef(null);
 
+  const [models, setModels] = useState([{id: uuidv4(), model: ""}]);
+
+  console.log(models);
   // Add new device error
   const [newDeviceError, setNewDeviceError] = useState(false);
   return (
@@ -48,19 +52,7 @@ function NewDevice({
         </div>
 
         {/* Models list */}
-        <ModelsList />
-
-        {/* Model */}
-        {/*
-        <div className={styles.newData}>
-          <span>Модель:</span>
-          <UncontrolledIconInput
-            ref={modelRef}
-            placeholder="Модель"
-            icon={icons.faTrashCan}
-          />
-        </div>
-        */}
+        <ModelsList models={models} setModels={setModels} />
 
         {/* Add new device button */}
         <div className={styles.saveData}>
