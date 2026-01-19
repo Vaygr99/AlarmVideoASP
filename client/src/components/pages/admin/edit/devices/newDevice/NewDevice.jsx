@@ -1,5 +1,5 @@
-import { useState, useRef } from "react";
-import {v4 as uuidv4} from "uuid";
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import ControlledIconInput from "../../../../../ui/inputs/iconInput/ControlledIconInput.jsx";
 import ModelsList from "../modelsList/ModelsList.jsx";
@@ -20,9 +20,8 @@ function NewDevice({
   ...props
 }) {
   const [name, setName] = useState("");
-  const modelRef = useRef(null);
 
-  const [models, setModels] = useState([{id: uuidv4(), model: ""}]);
+  const [models, setModels] = useState([{ id: uuidv4(), model: "" }]);
 
   console.log(models);
   // Add new device error
@@ -62,7 +61,7 @@ function NewDevice({
                 name,
                 setName,
                 setInputName,
-                modelRef,
+                models,
                 data,
                 setData,
                 setLoading,

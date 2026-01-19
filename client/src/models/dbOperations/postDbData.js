@@ -1,5 +1,3 @@
-import { v4 as generateId } from "uuid";
-
 // Add new client on edit page
 async function addNewClient(
   name,
@@ -74,18 +72,16 @@ async function addNewDevice(
   name,
   setName,
   setInputName,
-  model,
+  models,
   data,
   setData,
   setLoading,
   setNewDeviceError
 ) {
   // name - new device name
-  // model - new device model (object, not .current.value)
-  try {
-    // new model id
-    const newId = generateId();
+  // models - models array
 
+  try {
     setLoading(true);
 
     // add new device
@@ -96,8 +92,7 @@ async function addNewDevice(
       },
       body: JSON.stringify({
         name,
-        model: model.current.value,
-        model_id: newId,
+        models,
       }),
     });
 
@@ -114,14 +109,13 @@ async function addNewDevice(
         {
           _id: answer.id,
           name,
-          models: [{ id: newId, model: model.current.value }],
+          models,
         },
       ],
     }));
     // clear inputs
     setName("");
     setInputName("");
-    model.current.value = "";
     // no error message
     setNewDeviceError(false);
   } catch (err) {
