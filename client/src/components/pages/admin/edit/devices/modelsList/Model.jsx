@@ -6,9 +6,8 @@ import ControlledIconInput from "../../../../../ui/inputs/iconInput/ControlledIc
 import styles from "./Model.module.css";
 
 // Row with model template (input + button)
-function Model({ model, updateModel }) {
+function Model({ model, updateModel, deleteModel }) {
   // model - current model object ({id:..., model: ...})
-  // updateModel - setState to control model input
 
   return (
     <div className={styles.container}>
@@ -18,7 +17,11 @@ function Model({ model, updateModel }) {
         value={model.model}
         onChange={(e) => updateModel(model.id, e.target.value)}
       />
-      <SquareIconButton icon={faMinus} className="top-square-button" />
+      <SquareIconButton
+        icon={faMinus}
+        className="top-square-button"
+        onClick={() => deleteModel(model.id)}
+      />
     </div>
   );
 }

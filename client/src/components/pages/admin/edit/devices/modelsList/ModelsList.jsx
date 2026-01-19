@@ -17,12 +17,15 @@ function ModelsList({ models, setModels }) {
   // add new model
   const addModel = () =>
     setModels((prev) => [...prev, { id: uuidv4(), model: "" }]);
+  // delete model
+  const deleteModel = (id) =>
+    setModels((prev) => prev.filter((elem) => elem.id !== id));
 
   return (
     <div className={styles.container}>
       <p>Модель:</p>
       {models.map((elem) => (
-        <Model key={elem.id} model={elem} updateModel={updateModel} />
+        <Model key={elem.id} model={elem} updateModel={updateModel} deleteModel={deleteModel} />
       ))}
       {/* button for adding new model */}
       <SquareIconButton
