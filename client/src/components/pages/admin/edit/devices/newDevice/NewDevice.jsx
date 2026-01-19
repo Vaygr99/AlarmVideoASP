@@ -1,9 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useRef } from "react";
 import {v4 as uuidv4} from "uuid";
 
 import ControlledIconInput from "../../../../../ui/inputs/iconInput/ControlledIconInput.jsx";
-import UncontrolledIconInput from "../../../../../ui/inputs/iconInput/UncontrolledIconInput.jsx";
 import ModelsList from "../modelsList/ModelsList.jsx";
 
 import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
@@ -29,6 +27,7 @@ function NewDevice({
   console.log(models);
   // Add new device error
   const [newDeviceError, setNewDeviceError] = useState(false);
+
   return (
     <>
       {/* Add new device */}

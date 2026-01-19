@@ -1,4 +1,5 @@
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { v4 as uuidv4 } from "uuid";
 
 import Model from "./Model.jsx";
 import SquareIconButton from "../../../../../ui/buttons/squareIconButton/SquareIconButton.jsx";
@@ -13,6 +14,9 @@ function ModelsList({ models, setModels }) {
       prew.map((elem) => (elem.id === id ? { ...elem, model: value } : elem))
     );
   };
+  // add new model
+  const addModel = () =>
+    setModels((prev) => [...prev, { id: uuidv4(), model: "" }]);
 
   return (
     <div className={styles.container}>
@@ -24,6 +28,7 @@ function ModelsList({ models, setModels }) {
       <SquareIconButton
         icon={faPlus}
         className={`${styles.add} top-square-button`}
+        onClick={addModel}
       />
     </div>
   );
