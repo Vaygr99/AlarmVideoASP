@@ -131,23 +131,20 @@ function editData(app, db) {
   // Add new device
   app.post("/edit-data/devices/new", async (req, res) => {
     try {
-      const { name, model, model_id } = req.body;
-      // model_id - new model id
+      const { name, models } = req.body;
 
       const devices = await db.collection("devices").find().toArray();
 
       // Verify data
-      if (!verifyNewDevice(name, model)) {
-        return res.status(400).json({ error: "Incorrect device data" });
-      }
+      //if (!verifyNewDevice(name, model)) {
+      //  return res.status(400).json({ error: "Incorrect device data" });
+      //}
       // is dublicate
-      if (newDeviceDublicate(name, model, devices)) {
-        return res.status(400).json({ error: "Dublicate device data" });
-      }
+      //if (newDeviceDublicate(name, model, devices)) {
+      //  return res.status(400).json({ error: "Dublicate device data" });
+      //}
 
-      const result = await db
-        .collection("devices")
-        .insertOne({ name, models: [{ id: model_id, model }] });
+      const result = await db.collection("devices").insertOne({ name, models });
       res.status(201).json({
         // return id as an answer
         id: result.insertedId,
