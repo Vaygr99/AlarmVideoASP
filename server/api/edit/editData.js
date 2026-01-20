@@ -140,9 +140,9 @@ function editData(app, db) {
         return res.status(400).json({ error: "Incorrect device data" });
       }
       // is dublicate
-      //if (newDeviceDublicate(name, model, devices)) {
-      //  return res.status(400).json({ error: "Dublicate device data" });
-      //}
+      if (newDeviceDublicate(name, models, devices)) {
+        return res.status(400).json({ error: "Dublicate device data" });
+      }
 
       const result = await db.collection("devices").insertOne({ name, models });
       res.status(201).json({

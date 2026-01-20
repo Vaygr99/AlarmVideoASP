@@ -1,13 +1,20 @@
 // find dublicates for new device - by name or model
-function newDeviceDublicate(newName, newModel, devices) {
-  // get device names array
-  const names = devices.map((elem) => elem.name);
-  // get device models array
-  const models = [];
-  devices.forEach((elem) => {
-    elem.models.forEach((m) => models.push(m.model));
-  });
-  return names.includes(newName) || models.includes(newModel);
+function newDeviceDublicate(name = "", models = [], devices = []) {
+  // name - new device name
+  // models - models for new device
+  // devices - all devices
+
+  // find dublicate for new device name
+  const isDublicateName = devices.some((elem) => elem.name === name);
+  if (isDublicateName) return true;
+
+  // find dublicate for new device models
+  const isDublicateModel = devices.some((d) =>
+    d.models.some((dm) => models.some((m) => dm.model === m.model))
+  );
+  if (isDublicateModel) return true;
+
+  return false;
 }
 
-module.exports = { newDeviceDublicate }; 
+module.exports = { newDeviceDublicate };
