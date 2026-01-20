@@ -98,7 +98,7 @@ function editData(app, db) {
       res.status(200).json({ message: "Client updated successfully" });
     } catch (err) {
       console.error("Error updating client:", err);
-      res.status(500).json({ error: "Server error" });
+      res.status(500).json({ error: "Server error while updating client" });
     }
   });
 
@@ -122,7 +122,7 @@ function editData(app, db) {
       res.status(200).json({ message: "Client deleted successfully" });
     } catch (err) {
       console.error("Error deleting client:", err.message);
-      res.status(500).json({ error: "Server error" });
+      res.status(500).json({ error: "Server error whilde deleting client" });
     }
   });
 
@@ -132,7 +132,6 @@ function editData(app, db) {
   app.post("/edit-data/devices/new", async (req, res) => {
     try {
       const { name, models } = req.body;
-
       const devices = await db.collection("devices").find().toArray();
 
       // Verify data
