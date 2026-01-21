@@ -24,6 +24,7 @@ function FoundDevices({ data, inputDeviceName = "", icon, ...props }) {
         <Device
           key={elem._id}
           {...props}
+          modelsArray={elem.models}
           data={data}
           device={elem}
           icon={icon}
