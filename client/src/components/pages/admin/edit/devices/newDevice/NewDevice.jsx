@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import ControlledIconInput from "../../../../../ui/inputs/iconInput/ControlledIconInput.jsx";
@@ -21,7 +21,14 @@ function NewDevice({
 }) {
   const [name, setName] = useState("");
 
-  const [models, setModels] = useState([{ id: uuidv4(), model: "" }]);
+  const [models, setModels] = useState([]);
+
+  // clear inputs
+  useEffect(() => {
+    setName("");
+    setInputName("");
+    setModels([{ id: uuidv4(), model: "" }]);
+  }, [data]);
 
   console.log(models);
   // Add new device error
@@ -59,8 +66,6 @@ function NewDevice({
             onClick={() =>
               addNewDevice(
                 name,
-                setName,
-                setInputName,
                 models,
                 data,
                 setData,

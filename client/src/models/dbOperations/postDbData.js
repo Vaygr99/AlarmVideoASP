@@ -62,8 +62,6 @@ async function addNewClient(
 // Add new device on edit page
 async function addNewDevice(
   name,
-  setName,
-  setInputName,
   models,
   data,
   setData,
@@ -105,9 +103,6 @@ async function addNewDevice(
         },
       ],
     }));
-    // clear inputs
-    setName("");
-    setInputName("");
     // no error message
     setNewDeviceError(false);
   } catch (err) {
