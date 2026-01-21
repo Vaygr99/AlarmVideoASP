@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import NewClient from "./clients/newClient/NewClient.jsx";
 import FoundClients from "./clients/foundClients/FoundClients.jsx";
 import NewDevice from "./devices/newDevice/NewDevice.jsx";
+import FoundDevices from "./devices/foundDevices/FoundDevices.jsx";
 import Loader from "../../../ui/other/loader/Loader.jsx";
 import DbError from "../../../ui/other/dbError/dbError.jsx";
 
@@ -20,7 +21,7 @@ function Edit() {
   // db operations error message
   const [dbError, setDbError] = useState("");
   // name to search for other clients
-  const [inputName, setInputName] = useState("");
+  const [inputClientName, setInputClientName] = useState("");
   // name to search for other devices
   const [inputDeviceName, setInputDeviceName] = useState("");
 
@@ -47,7 +48,7 @@ function Edit() {
       <div className={styles.clients}>
         <h2>Клiєнти</h2>
         <NewClient
-          setInputName={setInputName}
+          setInputClientName={setInputClientName}
           icons={{ faTrashCan, faF }}
           data={data}
           setData={setData}
@@ -57,7 +58,7 @@ function Edit() {
           data={data}
           setData={setData}
           setLoading={setLoading}
-          inputName={inputName}
+          inputClientName={inputClientName}
           icon={faTrashCan}
         />
       </div>
@@ -67,12 +68,19 @@ function Edit() {
         <div>
           <h2>Обладнання</h2>
           <NewDevice
-          setInputName={setInputDeviceName}
-          icons={{ faTrashCan }}
-          data={data}
-          setData={setData}
-          setLoading={setLoading}
-        />
+            setInputDeviceName={setInputDeviceName}
+            icons={{ faTrashCan }}
+            data={data}
+            setData={setData}
+            setLoading={setLoading}
+          />
+          <FoundDevices
+            data={data}
+            setData={setData}
+            setLoading={setLoading}
+            inputDeviceName={inputDeviceName}
+            icon={faTrashCan}
+          />
         </div>
       </div>
     </div>
