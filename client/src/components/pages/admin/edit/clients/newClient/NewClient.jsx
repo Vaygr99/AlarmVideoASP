@@ -13,7 +13,7 @@ import { addNewClient } from "../../../../../../models/dbOperations/postDbData.j
 // Add new client on edit page
 function NewClient({
   icons,
-  setInputName,
+  setInputClientName,
   data,
   setData,
   setLoading,
@@ -28,7 +28,7 @@ function NewClient({
   // clear inputs
   useEffect(() => {
     setName("");
-    setInputName("");
+    setInputClientName("");
     setPhone("");
     infoRef.current.value = "";
   }, [data]);
@@ -50,7 +50,7 @@ function NewClient({
               value={name}
               onChange={(e) => {
                 setName(e.target.value);
-                setInputName(e.target.value);
+                setInputClientName(e.target.value);
               }}
               placeholder="Назва об'єкту"
               icon={icons.faTrashCan}

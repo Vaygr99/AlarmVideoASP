@@ -13,7 +13,7 @@ import { addNewDevice } from "../../../../../../models/dbOperations/postDbData.j
 // Add new device on edit page
 function NewDevice({
   icons,
-  setInputName,
+  setInputDeviceName,
   data,
   setData,
   setLoading,
@@ -26,7 +26,7 @@ function NewDevice({
   // clear inputs
   useEffect(() => {
     setName("");
-    setInputName("");
+    setInputDeviceName("");
     setModels([{ id: uuidv4(), model: "" }]);
   }, [data]);
 
@@ -48,7 +48,7 @@ function NewDevice({
               value={name}
               onChange={(e) => {
                 setName(e.target.value);
-                setInputName(e.target.value);
+                setInputDeviceName(e.target.value);
               }}
               placeholder="Назва пристрою"
               icon={icons.faTrashCan}
