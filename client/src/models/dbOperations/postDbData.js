@@ -1,10 +1,7 @@
 // Add new client on edit page
 async function addNewClient(
   name,
-  setName,
-  setInputName,
   phone,
-  setPhone,
   info,
   data,
   setData,
@@ -51,11 +48,6 @@ async function addNewClient(
         },
       ],
     }));
-    // clear inputs
-    setName("");
-    setInputName("");
-    setPhone("");
-    info.current.value = "";
     // no error message
     setNewClientError(false);
   } catch (err) {

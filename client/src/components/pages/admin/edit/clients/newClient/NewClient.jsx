@@ -22,9 +22,17 @@ function NewClient({
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const infoRef = useRef(null);
-
   // Add new client error
   const [newClientError, setNewClientError] = useState(false);
+
+  // clear inputs
+  useEffect(() => {
+    setName("");
+    setInputName("");
+    setPhone("");
+    infoRef.current.value = "";
+  }, [data]);
+
   return (
     <>
       {/* Add new client */}
@@ -79,10 +87,7 @@ function NewClient({
             onClick={() =>
               addNewClient(
                 name,
-                setName,
-                setInputName,
                 phone,
-                setPhone,
                 infoRef,
                 data,
                 setData,
