@@ -1,9 +1,9 @@
 import Device from "../device/Device.jsx";
 
 // Filter devices by current name
-function FoundDevices({ data, inputDeviceName = "", icon, ...props }) {
+function FoundDevices({ data = {}, inputDeviceName = "", icon, ...props }) {
   // data - loaded data from server
-
+  console.log(inputDeviceName, data.devices);
   // filter devices by current device name
   const list =
     inputDeviceName && data.devices

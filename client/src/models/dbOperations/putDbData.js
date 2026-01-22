@@ -95,6 +95,7 @@ async function updateDevice(
         return device._id === elem._id
           ? {
               _id: device._id,
+              name: device.name,
               models: device.models,
             }
           : elem;

@@ -6,6 +6,7 @@ import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
 
 import { updateDevice } from "../../../../../../models/dbOperations/putDbData.js";
 
+// One of devices, found by name filter
 function Device({
   data,
   setData,
