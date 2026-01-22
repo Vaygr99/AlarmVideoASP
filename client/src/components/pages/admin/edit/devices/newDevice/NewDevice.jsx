@@ -14,7 +14,7 @@ import { addNewDevice } from "../../../../../../models/dbOperations/postDbData.j
 function NewDevice({
   icons,
   setInputDeviceName,
-  data,
+  data = {},
   setData,
   setLoading,
   ...props
@@ -30,7 +30,6 @@ function NewDevice({
     setModels([{ id: uuidv4(), model: "" }]);
   }, [data]);
 
-  console.log(models);
   // Add new device error
   const [newDeviceError, setNewDeviceError] = useState(false);
 
@@ -64,14 +63,7 @@ function NewDevice({
           <TextButton
             text="Добавить"
             onClick={() =>
-              addNewDevice(
-                name,
-                models,
-                data,
-                setData,
-                setLoading,
-                setNewDeviceError
-              )
+              addNewDevice(name, models, setData, setLoading, setNewDeviceError)
             }
           />
         </div>

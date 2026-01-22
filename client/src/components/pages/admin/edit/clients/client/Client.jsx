@@ -11,7 +11,7 @@ import { updateClient } from "../../../../../../models/dbOperations/putDbData.js
 import { deleteClient } from "../../../../../../models/dbOperations/deleteDbData.js";
 
 // One of clients, found by name filter
-function Client({ data, setData, setLoading, client = {}, icon }) {
+function Client({ setData, setLoading, client = {}, icon }) {
   // client - client object (properties: _id, name, phone, info)
 
   const [phone, setPhone] = useState(client.phone);
@@ -52,7 +52,11 @@ function Client({ data, setData, setLoading, client = {}, icon }) {
         {/* Useful info */}
         <div className={`${styles.data} ${styles.textarea}`}>
           <span>Инфо:</span>
-          <IconTextarea textareaRef={infoRef} placeholder="Информация" icon={icon} />
+          <IconTextarea
+            textareaRef={infoRef}
+            placeholder="Информация"
+            icon={icon}
+          />
         </div>
 
         <div className={styles.buttons}>
@@ -67,7 +71,6 @@ function Client({ data, setData, setLoading, client = {}, icon }) {
                   phone,
                   info: infoRef.current.value,
                 },
-                data,
                 setData,
                 setLoading,
                 setUpdateClientError

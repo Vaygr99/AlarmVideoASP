@@ -11,7 +11,6 @@ import { deleteDevice } from "../../../../../../models/dbOperations/deleteDbData
 
 // One of devices, found by name filter
 function Device({
-  data,
   setData,
   setLoading,
   modelsArray = [],
@@ -32,11 +31,11 @@ function Device({
 
   return (
     <div className={styles.container}>
-      <div>
+      
         {/* Device */}
         <div className={styles.data}>
           <span>Устройство:</span>
-          <div>
+          <div className={styles.device}>
             <UncontrolledIconInput
               placeholder="Назва об'єкту"
               icon={icon}
@@ -59,7 +58,6 @@ function Device({
                   name: nameRef.current.value,
                   models,
                 },
-                data,
                 setData,
                 setLoading,
                 setUpdateDeviceError
@@ -79,7 +77,11 @@ function Device({
             }
           />
         </div>
-      </div>
+
+        {/* Error message */}
+        {updateDeviceError && <p>Ошибка изменения устройства</p>}
+        {deleteDeviceError && <p>Ошибка удаления устройства</p>}
+      
     </div>
   );
 }

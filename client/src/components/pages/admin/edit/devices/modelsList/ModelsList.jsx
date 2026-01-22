@@ -7,7 +7,7 @@ import SquareIconButton from "../../../../../ui/buttons/squareIconButton/SquareI
 import styles from "./ModelsList.module.css";
 
 // Models list
-function ModelsList({ models, setModels }) {
+function ModelsList({ models = {}, setModels }) {
   // change value of model input
   const updateModel = (id, value) => {
     setModels((prew) =>

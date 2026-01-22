@@ -6,7 +6,7 @@ import ControlledIconInput from "../../../../../ui/inputs/iconInput/ControlledIc
 import styles from "./Model.module.css";
 
 // Row with model template (input + button)
-function Model({ model, updateModel, deleteModel }) {
+function Model({ model = {}, updateModel, deleteModel }) {
   // model - current model object ({id:..., model: ...})
 
   return (

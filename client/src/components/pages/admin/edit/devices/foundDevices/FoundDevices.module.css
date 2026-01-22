@@ -1,0 +1,8 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.65rem;
+  border-top-style: dashed;
+  border-top-width: 2px;
+  padding-top: 0.5rem;
+}

@@ -3,7 +3,6 @@ async function addNewClient(
   name,
   phone,
   info,
-  data,
   setData,
   setLoading,
   setNewClientError
@@ -63,7 +62,6 @@ async function addNewClient(
 async function addNewDevice(
   name,
   models,
-  data,
   setData,
   setLoading,
   setNewDeviceError

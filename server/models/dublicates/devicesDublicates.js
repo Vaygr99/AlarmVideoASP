@@ -18,7 +18,7 @@ function newDeviceDublicate(name = "", models = [], devices = []) {
 }
 
 // find dublicates for updating client - by name or phone
-function updateDeviceDublicate(id, name, models, devices) {
+function updateDeviceDublicate(id, name = "", models = [], devices = []) {
   // id - id of updating device
 
   // find all devices except of current (with our id)

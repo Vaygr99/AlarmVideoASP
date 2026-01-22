@@ -5,12 +5,9 @@
   border-width: 2px;
   border-radius: 6px;
   padding: 0.6rem;
-}
-.container > div {
-  display: flex;
-  flex-direction: column;
   row-gap: 0.35rem;
 }
+
 .container p {
   display: block;
   font-size: 1.2rem;
@@ -23,4 +20,21 @@
   display: flex;
   justify-content: flex-end;
   column-gap: 0.35rem;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  column-gap: 0.6rem;
+}
+
+.device {
+  display: flex;
+  width: 100%;
+}
+
+.device span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

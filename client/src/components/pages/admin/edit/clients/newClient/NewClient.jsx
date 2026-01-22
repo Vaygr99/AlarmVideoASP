@@ -89,7 +89,6 @@ function NewClient({
                 name,
                 phone,
                 infoRef,
-                data,
                 setData,
                 setLoading,
                 setNewClientError

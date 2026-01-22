@@ -3,7 +3,7 @@ import Client from "../client/Client.jsx";
 import styles from "./FoundClients.module.css";
 
 // Filter clients by current name
-function FoundClients({ data, inputClientName = "", icon, ...props }) {
+function FoundClients({ data = {}, inputClientName = "", icon, ...props }) {
   // data - loaded data from server
 
   // filter clients by current client name

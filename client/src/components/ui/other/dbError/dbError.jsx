@@ -1,7 +1,7 @@
 import styles from "./dbError.module.css";
 
 // set message, when db operations error
-function dbError({ message }) {
+function dbError({ message = "!No Message!" }) {
   return (
     <div id="loading-error" className={styles.container}>
       <p>{message}</p>

@@ -1,11 +1,5 @@
 // Update client on edit page
-async function updateClient(
-  client,
-  data,
-  setData,
-  setLoading,
-  setUpdateClientError
-) {
+async function updateClient(client, setData, setLoading, setUpdateClientError) {
   try {
     setLoading(true);
 
@@ -60,7 +54,6 @@ async function updateClient(
 // Update client on edit page
 async function updateDevice(
   device = {},
-  data,
   setData,
   setLoading,
   setUpdateDeviceError

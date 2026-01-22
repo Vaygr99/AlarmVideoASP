@@ -1,7 +1,7 @@
 import styles from "./BaseTextarea.module.css";
 
 // Basic textarea element
-function BaseTextarea({ placeholder, textareaRef }) {
+function BaseTextarea({ placeholder = "", textareaRef }) {
   return (
     <textarea
       ref={textareaRef}

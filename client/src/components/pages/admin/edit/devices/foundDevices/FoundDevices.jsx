@@ -1,9 +1,11 @@
 import Device from "../device/Device.jsx";
 
+import styles from "./FoundDevices.module.css";
+
 // Filter devices by current name
 function FoundDevices({ data = {}, inputDeviceName = "", icon, ...props }) {
   // data - loaded data from server
-  console.log(inputDeviceName, data.devices);
+
   // filter devices by current device name
   const list =
     inputDeviceName && data.devices
@@ -18,14 +20,13 @@ function FoundDevices({ data = {}, inputDeviceName = "", icon, ...props }) {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <h2>Знайдено: {list.length}</h2>
       {list.map((elem) => (
         <Device
           key={elem._id}
           {...props}
           modelsArray={elem.models}
-          data={data}
           device={elem}
           icon={icon}
         />
