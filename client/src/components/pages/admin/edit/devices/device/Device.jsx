@@ -4,6 +4,8 @@ import UncontrolledIconInput from "../../../../../ui/inputs/iconInput/Uncontroll
 import ModelsList from "../modelsList/ModelsList.jsx";
 import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
 
+import styles from "./Device.module.css";
+
 import { updateDevice } from "../../../../../../models/dbOperations/putDbData.js";
 import { deleteDevice } from "../../../../../../models/dbOperations/deleteDbData.js";
 
@@ -21,7 +23,7 @@ function Device({
 
   // Update device error
   const [updateDeviceError, setUpdateDeviceError] = useState(false);
-    // Delete device error
+  // Delete device error
   const [deleteDeviceError, setDeleteDeviceError] = useState(false);
 
   useEffect(() => {
@@ -29,41 +31,42 @@ function Device({
   }, []);
 
   return (
-    <div>
-      {/* Device */}
+    <div className={styles.container}>
       <div>
-        <span>Устройство:</span>
-        <div>
-          <UncontrolledIconInput
-            placeholder="Назва об'єкту"
-            icon={icon}
-            inputRef={nameRef}
-          />
+        {/* Device */}
+        <div className={styles.data}>
+          <span>Устройство:</span>
+          <div>
+            <UncontrolledIconInput
+              placeholder="Назва об'єкту"
+              icon={icon}
+              inputRef={nameRef}
+            />
+          </div>
         </div>
-      </div>
 
-      {/* Models list */}
-      <ModelsList models={models} setModels={setModels} />
+        {/* Models list */}
+        <ModelsList models={models} setModels={setModels} />
 
-      <div>
-        {/* Update device button */}
-        <TextButton
-          text="Обновить"
-          onClick={() =>
-            updateDevice(
-              {
-                _id: device._id,
-                name: nameRef.current.value,
-                models,
-              },
-              data,
-              setData,
-              setLoading,
-              setUpdateDeviceError
-            )
-          }
-        />
-        {/* Delete device button */}
+        <div className={styles.buttons}>
+          {/* Update device button */}
+          <TextButton
+            text="Обновить"
+            onClick={() =>
+              updateDevice(
+                {
+                  _id: device._id,
+                  name: nameRef.current.value,
+                  models,
+                },
+                data,
+                setData,
+                setLoading,
+                setUpdateDeviceError
+              )
+            }
+          />
+          {/* Delete device button */}
           <TextButton
             text="Удалить"
             onClick={() =>
@@ -75,6 +78,7 @@ function Device({
               )
             }
           />
+        </div>
       </div>
     </div>
   );
