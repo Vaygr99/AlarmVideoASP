@@ -8,7 +8,7 @@ import FoundDevices from "./devices/foundDevices/FoundDevices.jsx";
 import Loader from "../../../ui/other/loader/Loader.jsx";
 import DbError from "../../../ui/other/dbError/dbError.jsx";
 
-import { getDataForEditPage } from "../../../../models/dbOperations/getDbData.js";
+import { getDataForPages } from "../../../../models/dbOperations/getDbData.js";
 
 import styles from "./Edit.module.css";
 
@@ -26,7 +26,7 @@ function Edit() {
   const [inputDeviceName, setInputDeviceName] = useState("");
 
   useEffect(() => {
-    getDataForEditPage(setData, setLoading, setDbError);
+    getDataForPages(setData, setLoading, setDbError);
   }, []);
 
   // if error, when loading data from server

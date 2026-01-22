@@ -1,7 +1,7 @@
-// Get collections (clients, devices, offers) for edit page
-async function getDataForEditPage(setData, setLoading, setDbError) {
+// Get collections (clients, devices, offers) for every page
+async function getDataForPages(setData, setLoading, setDbError) {
   try {
-    const result = await fetch("http://localhost:4000/edit-data");
+    const result = await fetch("http://localhost:4000/all-data");
     if (!result.ok) throw new Error("Error");
     const data = await result.json();
     setData(data);
@@ -13,4 +13,4 @@ async function getDataForEditPage(setData, setLoading, setDbError) {
   }
 }
 
-export { getDataForEditPage };
+export { getDataForPages };
