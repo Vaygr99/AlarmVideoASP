@@ -5,6 +5,7 @@ import ModelsList from "../modelsList/ModelsList.jsx";
 import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
 
 import { updateDevice } from "../../../../../../models/dbOperations/putDbData.js";
+import { deleteDevice } from "../../../../../../models/dbOperations/deleteDbData.js";
 
 // One of devices, found by name filter
 function Device({
@@ -20,6 +21,8 @@ function Device({
 
   // Update device error
   const [updateDeviceError, setUpdateDeviceError] = useState(false);
+    // Delete device error
+  const [deleteDeviceError, setDeleteDeviceError] = useState(false);
 
   useEffect(() => {
     nameRef.current.value = device.name;
@@ -60,6 +63,18 @@ function Device({
             )
           }
         />
+        {/* Delete device button */}
+          <TextButton
+            text="Удалить"
+            onClick={() =>
+              deleteDevice(
+                device._id,
+                setData,
+                setDeleteDeviceError,
+                setLoading
+              )
+            }
+          />
       </div>
     </div>
   );
