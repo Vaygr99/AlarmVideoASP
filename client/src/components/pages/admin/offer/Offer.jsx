@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import styles from "./Offer.module.css";
+
 import { getDataForPages } from "../../../../models/dbOperations/getDbData.js";
 
 // Page for creating offers
@@ -25,6 +27,11 @@ function Offer() {
     );
   }
 
-  return <div>Offer</div>;
+  return (
+    <div id="offer" className={styles.container}>
+      <div>Клиент</div>
+      <div>Заказ</div>
+    </div>
+  );
 }
 export default Offer;
