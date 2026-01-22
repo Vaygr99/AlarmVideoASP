@@ -25,10 +25,8 @@ function NewClient({
   // Add new client error
   const [newClientError, setNewClientError] = useState(false);
 
-  // clear inputs
+  // clear phone input and textarea
   useEffect(() => {
-    setName("");
-    setInputClientName("");
     setPhone("");
     infoRef.current.value = "";
   }, [data]);

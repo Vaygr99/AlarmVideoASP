@@ -25,8 +25,8 @@ function NewDevice({
 
   // clear inputs
   useEffect(() => {
-    setName("");
-    setInputDeviceName("");
+    //setName("");
+    //setInputDeviceName("");
     setModels([{ id: uuidv4(), model: "" }]);
   }, [data]);
 
