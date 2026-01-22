@@ -197,6 +197,28 @@ function editData(app, db) {
       res.status(500).json({ error: "Server error while updating device" });
     }
   });
+
+  // delete device
+  app.delete("/edit-data/devices/delete/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      // Validate id
+      if (!ObjectId.isValid(id)) {
+        return res.status(400).json({ error: "Invalid device ID" });
+      }
+      // Delete device
+      const result = await db
+        .collection("devices")
+        .deleteOne({ _id: new ObjectId(id) });
+      if (result.deletedCount === 0) {
+        return res.status(404).json({ error: "Device not found" });
+      }
+      res.status(200).json({ message: "Device deleted successfully" });
+    } catch (err) {
+      console.error("Error deleting device:", err.message);
+      res.status(500).json({ error: "Server error whilde deleting device" });
+    }
+  });
 }
 
 module.exports = editData;

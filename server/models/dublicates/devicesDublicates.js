@@ -23,7 +23,6 @@ function updateDeviceDublicate(id, name, models, devices) {
 
   // find all devices except of current (with our id)
   const found = devices.filter((elem) => elem._id.toString() !== id);
-  console.log(found);
 
   // find dublicate for updating device models
   const isDublicateModel = found.some((d) =>
