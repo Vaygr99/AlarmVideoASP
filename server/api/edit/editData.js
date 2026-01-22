@@ -164,13 +164,13 @@ function editData(app, db) {
       const devices = await db.collection("devices").find().toArray();
 
       // Verify data
-      //if (!verifyClient(name, phone)) {
-      //  return res.status(400).json({ error: "Incorrect client data" });
-      //}
+      if (!verifyDevice(name, models)) {
+        return res.status(400).json({ error: "Incorrect device data" });
+      }
 
       // is dublicate
-      //if (updateClientDublicate(id, name, phone, clients)) {
-      //  return res.status(400).json({ error: "Dublicate client data" });
+      //if (updateDeviceDublicate(id, name, models, devices)) {
+      //  return res.status(400).json({ error: "Dublicate device data" });
       //}
 
       const updateData = req.body;
