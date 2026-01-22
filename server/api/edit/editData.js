@@ -154,6 +154,53 @@ function editData(app, db) {
       res.status(500).json({ error: "Server error while adding device" });
     }
   });
+
+
+  // Update device
+  app.put("/edit-data/devices/update/:id", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { name, models } = req.body;
+      const devices = await db.collection("devices").find().toArray();
+
+      // Verify data
+      //if (!verifyClient(name, phone)) {
+      //  return res.status(400).json({ error: "Incorrect client data" });
+      //}
+
+      // is dublicate
+      //if (updateClientDublicate(id, name, phone, clients)) {
+      //  return res.status(400).json({ error: "Dublicate client data" });
+      //}
+
+      const updateData = req.body;
+      // Check for data availability
+      if (!updateData || Object.keys(updateData).length === 0) {
+        return res.status(400).json({ error: "No data provided for update" });
+      }
+      // Validate id
+      if (!ObjectId.isValid(id)) {
+        return res.status(400).json({ error: "Invalid device ID" });
+      }
+      // Update selected device
+      const updated = await db
+        .collection("devices")
+        .updateOne({ _id: new ObjectId(id) }, { $set: updateData });
+      // Check for device availability
+      if (updated.matchedCount === 0) {
+        return res.status(404).json({ error: "Device not found" });
+      }
+
+      res.status(200).json({ message: "Device updated successfully" });
+    } catch (err) {
+      console.error("Error updating device:", err);
+      res.status(500).json({ error: "Server error while updating device" });
+    }
+  });
+
+
+
+
 }
 
 module.exports = editData;
