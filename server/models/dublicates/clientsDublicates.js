@@ -14,7 +14,6 @@ function updateClientDublicate(id, name, phone, clients) {
 
   // find all clients except of current (with our id)
   const found = clients.filter((elem) => elem._id.toString() !== id);
-  console.log(found);
   return (
     found.some((elem) => elem.name === name) ||
     found.some((elem) => elem.phone === phone)

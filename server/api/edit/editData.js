@@ -2,6 +2,7 @@ const { ObjectId } = require("mongodb");
 
 const {
   newDeviceDublicate,
+  updateDeviceDublicate,
 } = require("../../models/dublicates/devicesDublicates.js");
 const {
   newClientDublicate,
@@ -155,7 +156,6 @@ function editData(app, db) {
     }
   });
 
-
   // Update device
   app.put("/edit-data/devices/update/:id", async (req, res) => {
     try {
@@ -169,9 +169,9 @@ function editData(app, db) {
       }
 
       // is dublicate
-      //if (updateDeviceDublicate(id, name, models, devices)) {
-      //  return res.status(400).json({ error: "Dublicate device data" });
-      //}
+      if (updateDeviceDublicate(id, name, models, devices)) {
+        return res.status(400).json({ error: "Dublicate device data" });
+      }
 
       const updateData = req.body;
       // Check for data availability
@@ -197,10 +197,6 @@ function editData(app, db) {
       res.status(500).json({ error: "Server error while updating device" });
     }
   });
-
-
-
-
 }
 
 module.exports = editData;

@@ -17,4 +17,20 @@ function newDeviceDublicate(name = "", models = [], devices = []) {
   return false;
 }
 
-module.exports = { newDeviceDublicate };
+// find dublicates for updating client - by name or phone
+function updateDeviceDublicate(id, name, models, devices) {
+  // id - id of updating device
+
+  // find all devices except of current (with our id)
+  const found = devices.filter((elem) => elem._id.toString() !== id);
+  console.log(found);
+
+  // find dublicate for updating device models
+  const isDublicateModel = found.some((d) =>
+    d.models.some((dm) => models.some((m) => dm.model === m.model))
+  );
+
+  return found.some((elem) => elem.name === name) || isDublicateModel;
+}
+
+module.exports = { newDeviceDublicate, updateDeviceDublicate };
