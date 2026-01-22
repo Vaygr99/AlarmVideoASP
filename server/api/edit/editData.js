@@ -17,7 +17,7 @@ function editData(app, db) {
   // db - mongodb object
 
   // Get data from clients, devices and offers collections
-  app.get("/edit-data", async (req, res) => {
+  app.get("/all-data", async (req, res) => {
     try {
       const clients = await db.collection("clients").find().toArray();
       const devices = await db.collection("devices").find().toArray();
