@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
+import DbError from "../../../ui/other/dbError/dbError.jsx";
+import ButtonList from "../../../ui/menu/buttonList/ButtonList.jsx";
 
 import styles from "./Offer.module.css";
 
@@ -21,7 +25,7 @@ function Offer() {
   if (dbError) {
     console.error(`Loading error: ${dbError}`);
     return (
-      <div id="offer">
+      <div id="offer-error">
         <DbError message="Ошибка загрузки данных..." />
       </div>
     );
@@ -29,7 +33,9 @@ function Offer() {
 
   return (
     <div id="offer" className={styles.container}>
-      <div>Клиент</div>
+      <div>
+        <ButtonList text="Заказчик" icon={faChevronDown} list={["one", "two", "three"]} />
+      </div>
       <div>Заказ</div>
     </div>
   );

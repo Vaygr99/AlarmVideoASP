@@ -33,7 +33,7 @@ function Edit() {
   if (dbError) {
     console.error(`Loading error: ${dbError}`);
     return (
-      <div id="edit" className={styles.container}>
+      <div id="edit-error" className={styles.container}>
         <DbError message="Ошибка загрузки данных..." />
       </div>
     );
