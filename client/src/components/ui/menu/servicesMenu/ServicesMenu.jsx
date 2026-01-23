@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 import BaseLink from "../BaseLink.jsx";
 
 import styles from "./ServicesMenu.module.css";
@@ -14,8 +16,8 @@ function ServicesMenu() {
   return (
     // Services list
     <nav id="services-menu" className={styles.container}>
-      {data.map((elem, index) => (
-        <BaseLink key={index} to={elem.link}>
+      {data.map((elem) => (
+        <BaseLink key={uuidv4()} to={elem.link}>
           <span>{elem.service}</span>
         </BaseLink>
       ))}
