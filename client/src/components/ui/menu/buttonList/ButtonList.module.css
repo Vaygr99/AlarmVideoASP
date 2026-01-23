@@ -1,0 +1,20 @@
+.container {
+  display: inline-flex;
+  flex-direction: column;
+  row-gap: 0.3rem;
+}
+
+.button {
+  font-size: 1.2rem;
+  font-weight: 500;
+  column-gap: 0.25rem;
+  justify-content: flex-start;
+  padding-right: 0.35rem;
+  height: 1.87rem;
+  border-radius: 4px;
+}
+
+.button svg {
+  font-size: 0.7em;
+  transform: translateX(0.25em);
+}
