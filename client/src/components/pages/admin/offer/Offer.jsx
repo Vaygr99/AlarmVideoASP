@@ -3,7 +3,7 @@ import { faChevronDown, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 import DbError from "../../../ui/other/dbError/dbError.jsx";
 import ButtonList from "../../../ui/menu/buttonList/ButtonList.jsx";
-import UncontrolledIconInput from "../../../ui/inputs/UncontrolledInput.jsx";
+import UncontrolledIconInput from "../../../ui/inputs/iconInput/UncontrolledIconInput.jsx";
 
 import styles from "./Offer.module.css";
 
@@ -36,31 +36,36 @@ function Offer() {
 
   return (
     <div id="offer" className={styles.container}>
-      <div>
-        <span>Заказчик:</span>
-        <ButtonList
-          text="Заказчик"
-          icon={faChevronDown}
-          list={data?.clients.map((elem) => elem.name)}
-        />
+      <div className={styles.title}>
+        <div>
+          <span>Заказчик:</span>
+          <ButtonList
+            text="Заказчик"
+            icon={faChevronDown}
+            list={data?.clients.map((elem) => elem.name)}
+          />
+        </div>
+        <div>
+          <span>Телефон:</span>
+          <span>{}</span>
+        </div>
+        <div>
+          <span>Дата:</span>
+          <span>{new Date().toLocaleDateString()}</span>
+        </div>
+        <div>
+          <span>Адрес:</span>
+          <div>
+            <UncontrolledIconInput
+              placeholder="Назва об'єкту"
+              icon={faTrashCan}
+              inputRef={nameRef}
+            />
+          </div>
+        </div>
       </div>
-      <div>
-        <span>Телефон:</span>
-        <span>{}</span>
-      </div>
-      <div>
-        <span>Дата:</span>
-        <span>{new Date().toLocaleDateString()}</span>
-      </div>
-      <div>
-        <span>Адрес:</span>
-        <UncontrolledIconInput
-          placeholder="Назва об'єкту"
-          icon={faTrashCan}
-          inputRef={nameRef}
-        />
-      </div>
-      <div>Заказ</div>
+
+      <div className={styles.body}>Заказ</div>
     </div>
   );
 }
