@@ -20,8 +20,13 @@
 }
 .title > div > span {
   font-size: 1.15rem;
+}
+.title > div > span:first-child {
   width: 7.2rem;
 }
 .title input {
   width: 30rem;
+}
+.title > div:first-child > div > button {
+  min-width: 20rem;
 }

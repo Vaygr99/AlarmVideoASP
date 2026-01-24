@@ -18,14 +18,14 @@ function Offer() {
   const [loading, setLoading] = useState(true);
   // db operations error message
   const [dbError, setDbError] = useState("");
-  // client id, checked in title section
-  const [checkedClientId, setCheckedClientId] = useState("");
+  // client object, checked in title section
+  const [checkedClient, setCheckedClient] = useState({});
   // new offer
   const [newOffer, setNewOffer] = useState({
     title: "",
     address: "",
     executor: "",
-    clientId: checkedClientId,
+    clientId: checkedClient.id,
     rows: [
       { model: "", price: "", quantity: "", unit: "", name: "", id: uuidv4() },
     ],
@@ -34,6 +34,8 @@ function Offer() {
     project: "",
     adjustments: [{ name: "", text: "", id: uuidv4() }],
   });
+
+  console.log(newOffer);
 
   // references
   const executorRef = useRef(null);
@@ -62,15 +64,20 @@ function Offer() {
           {/* Client */}
           <span>Заказчик:</span>
           <ButtonList
-            text="Заказчик"
+            text={checkedClient.name || ""}
             icon={faChevronDown}
-            list={data?.clients.map((elem) => elem.name)}
+            list={data?.clients.map((elem) => ({
+              id: elem._id,
+              name: elem.name,
+              phone: elem.phone,
+            }))}
+            checkValue={setCheckedClient}
           />
         </div>
         {/* Client's phone */}
         <div>
           <span>Телефон:</span>
-          <span>{}</span>
+          <span>{checkedClient.phone}</span>
         </div>
         {/* date of offer creation */}
         <div>
