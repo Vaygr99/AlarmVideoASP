@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import DbError from "../../../ui/other/dbError/dbError.jsx";
 import ButtonList from "../../../ui/menu/buttonList/ButtonList.jsx";
 import UncontrolledIconInput from "../../../ui/inputs/iconInput/UncontrolledIconInput.jsx";
+import OfferList from "../offer/offerList/OfferList.jsx";
 
 import styles from "./Offer.module.css";
 
@@ -20,15 +21,17 @@ function Offer() {
   const [dbError, setDbError] = useState("");
   // client object, checked in title section
   const [checkedClient, setCheckedClient] = useState({});
+  // offer rows array
+  const [offerList, setOfferList] = useState([
+    { model: "", price: "", quantity: "", unit: "", name: "", id: uuidv4() },
+  ]);
   // new offer
   const [newOffer, setNewOffer] = useState({
     title: "",
     address: "",
     executor: "",
     clientId: checkedClient.id,
-    rows: [
-      { model: "", price: "", quantity: "", unit: "", name: "", id: uuidv4() },
-    ],
+    rows: offerList,
     road: "",
     mount: "",
     project: "",
@@ -59,6 +62,7 @@ function Offer() {
   return (
     <div id="offer" className={styles.container}>
       <h2>Комерцiйна пропозицiя</h2>
+      {/* title section */}
       <div className={styles.title}>
         <div>
           {/* Client */}
@@ -108,7 +112,21 @@ function Offer() {
         </div>
       </div>
 
-      <div className={styles.body}>Заказ</div>
+      {/* body section */}
+      <div className={styles.body}>
+        {/* type of task */}
+        <div className={styles.taskType}>
+          <span>Тип задачи:</span>
+          <div>
+            <UncontrolledIconInput
+              placeholder="Тип задачи"
+              icon={faTrashCan}
+              inputRef={titleRef}
+            />
+          </div>
+        </div>
+        <OfferList rows={offerList} setRows={setOfferList} />
+      </div>
     </div>
   );
 }

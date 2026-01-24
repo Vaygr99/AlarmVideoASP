@@ -1,11 +1,11 @@
 .container {
   display: flex;
   flex-direction: column;
+  row-gap: 0.8rem;
 }
 .container h2 {
   font-size: 1.6rem;
   text-align: center;
-  margin-bottom: 0.8rem;
 }
 
 .title {
@@ -29,4 +29,20 @@
 }
 .title > div:first-child > div > button {
   min-width: 20rem;
+}
+
+.body {
+  border: 0;
+  border-top-style: dashed;
+  border-top-width: 2px;
+}
+
+.taskType {
+  display: flex;
+  align-items: center;
+  column-gap: 0.7rem;
+}
+.taskType span {
+  font-size: 1.15rem;
+  width: 7.2rem;
 }
