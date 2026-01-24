@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.35rem;
+  border-style: dashed;
+  border-width: 2px;
+  border-radius: 4px;
+  position: relative;
+  height: 30px;
+}
+
+.add {
+  position: absolute;
+  font-size: 1.87rem;
+  width: 1.87rem;
+  height: 1.87rem;
+  border: 0;
+  bottom: -2.22rem;
+}
