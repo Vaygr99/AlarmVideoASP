@@ -8,7 +8,7 @@ import useOutsideClick from "../useOutsideClick.js";
 import styles from "./ButtonList.module.css";
 
 // Button (with icon and text) for opening list items
-function ButtonList({ text, icon, list }) {
+function ButtonList({ text, icon, list, checkValue }) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
 
@@ -21,7 +21,7 @@ function ButtonList({ text, icon, list }) {
       onClick={() => setOpen((prev) => !prev)}
     >
       <IconTextButton className={styles.button} text={text} icon={icon} />
-      {open && <List list={list} />}
+      {open && <List list={list} checkValue={checkValue} />}
     </div>
   );
 }
