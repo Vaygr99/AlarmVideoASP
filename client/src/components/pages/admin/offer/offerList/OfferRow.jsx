@@ -14,10 +14,15 @@ function OfferRow({ currentOffer = {}, setRows, devices }) {
   const [deviceName, setDeviceName] = useState({ id: null, name: "" });
   // object, containing selected device model and its id
   const [deviceModel, setDeviceModel] = useState({ id: null, name: "" });
-// object, containing selected unit and its id
+  // object, containing selected unit and its id
   const [unit, setUnit] = useState({ id: null, name: "" });
   const unitsArray = ["шт.", "м.", "компл."];
+  // device price
+  const [price, setPrice] = useState("");
+  // device quantity
+  const [quantity, setQuantity] = useState("");
 
+  console.log(currentOffer);
 
   // update device name
   useEffect(() => {
@@ -53,6 +58,24 @@ function OfferRow({ currentOffer = {}, setRows, devices }) {
       }),
     );
   }, [unit.name]);
+
+  // change price
+  useEffect(() => {
+    setRows((prev) =>
+      prev.map((elem) => {
+        return elem.id === currentOffer.id ? { ...elem, price } : elem;
+      }),
+    );
+  }, [price]);
+
+  // change quantity
+  useEffect(() => {
+    setRows((prev) =>
+      prev.map((elem) => {
+        return elem.id === currentOffer.id ? { ...elem, quantity } : elem;
+      }),
+    );
+  }, [quantity]);
 
   return (
     <div className={styles.container}>
@@ -91,17 +114,29 @@ function OfferRow({ currentOffer = {}, setRows, devices }) {
         }))}
         checkValue={setUnit}
       />
+      {/* price */}
       <ControlledIconInput
         className={styles.price}
-        value={0}
-        onChange={(e) => {}}
+        value={price}
+        onChange={(e) => {
+          const value = e.target.value;
+          if (/^\d*$/.test(value)) {
+            setPrice(value);
+          }
+        }}
         placeholder="0"
         icon={faTrashCan}
       />
+      {/* quantity */}
       <ControlledIconInput
         className={styles.quantity}
-        value={0}
-        onChange={(e) => {}}
+        value={quantity}
+        onChange={(e) => {
+          const value = e.target.value;
+          if (/^\d*$/.test(value)) {
+            setQuantity(value);
+          }
+        }}
         placeholder="0"
         icon={faTrashCan}
       />

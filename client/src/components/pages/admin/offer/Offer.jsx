@@ -125,7 +125,11 @@ function Offer() {
             />
           </div>
         </div>
-        <OfferList rows={offerList} setRows={setOfferList} devices={data?.devices ?? []} />
+        <OfferList
+          rows={offerList}
+          setRows={setOfferList}
+          devices={data?.devices ?? []}
+        />
       </div>
     </div>
   );
