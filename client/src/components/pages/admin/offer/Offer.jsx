@@ -38,7 +38,7 @@ function Offer() {
     adjustments: [{ name: "", text: "", id: uuidv4() }],
   });
 
-  console.log(newOffer);
+  console.log(offerList);
 
   // references
   const executorRef = useRef(null);
@@ -125,7 +125,7 @@ function Offer() {
             />
           </div>
         </div>
-        <OfferList rows={offerList} setRows={setOfferList} />
+        <OfferList rows={offerList} setRows={setOfferList} devices={data?.devices ?? []} />
       </div>
     </div>
   );

@@ -6,15 +6,18 @@ import SquareIconButton from "../../../../ui/buttons/squareIconButton/SquareIcon
 import styles from "./OfferList.module.css";
 import OfferRow from "./OfferRow.jsx";
 
-function OfferList({ rows = [], setRows }) {
-  // add new model
+function OfferList({ rows = [], ...props }) {
+  // add new offer row
   const addRow = () =>
-    setRows((prev) => [...prev, { id: uuidv4(), model: "" }]);
+    props.setRows((prev) => [
+      ...prev,
+      { model: "", price: "", quantity: "", unit: "", name: "", id: uuidv4() },
+    ]);
 
   return (
     <div className={styles.container}>
       {rows.map((elem) => (
-        <OfferRow key={elem.id} row={elem} setRows={setRows} />
+        <OfferRow key={elem.id} {...props} currentOffer={elem} />
       ))}
       {/* button for adding new model */}
       <SquareIconButton
