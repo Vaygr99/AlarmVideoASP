@@ -1,5 +1,6 @@
 import { faChevronDown, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 import ButtonList from "../../../../ui/menu/buttonList/ButtonList.jsx";
 import ControlledIconInput from "../../../../ui/inputs/iconInput/ControlledIconInput.jsx";
@@ -13,6 +14,10 @@ function OfferRow({ currentOffer = {}, setRows, devices }) {
   const [deviceName, setDeviceName] = useState({ id: null, name: "" });
   // object, containing selected device model and its id
   const [deviceModel, setDeviceModel] = useState({ id: null, name: "" });
+// object, containing selected unit and its id
+  const [unit, setUnit] = useState({ id: null, name: "" });
+  const unitsArray = ["шт.", "м.", "компл."];
+
 
   // update device name
   useEffect(() => {
@@ -37,6 +42,17 @@ function OfferRow({ currentOffer = {}, setRows, devices }) {
       }),
     );
   }, [deviceModel.name]);
+
+  // update unit
+  useEffect(() => {
+    setRows((prev) =>
+      prev.map((elem) => {
+        return elem.id === currentOffer.id
+          ? { ...elem, unit: unit.name }
+          : elem;
+      }),
+    );
+  }, [unit.name]);
 
   return (
     <div className={styles.container}>
@@ -64,10 +80,16 @@ function OfferRow({ currentOffer = {}, setRows, devices }) {
         }))}
         checkValue={setDeviceName}
       />
+      {/* unit */}
       <ButtonList
         className={styles.unit}
         text={currentOffer.unit}
         icon={faChevronDown}
+        list={unitsArray.map((elem) => ({
+          id: uuidv4(),
+          name: elem,
+        }))}
+        checkValue={setUnit}
       />
       <ControlledIconInput
         className={styles.price}
