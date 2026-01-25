@@ -13,11 +13,19 @@ function OfferList({ rows = [], ...props }) {
       ...prev,
       { model: "", price: "", quantity: "", unit: "", name: "", id: uuidv4() },
     ]);
+  // delete offer row
+  const deleteRow = (id) =>
+    props.setRows((prev) => prev.filter((elem) => elem.id !== id));
 
   return (
     <div className={styles.container}>
       {rows.map((elem) => (
-        <OfferRow key={elem.id} {...props} currentOffer={elem} />
+        <OfferRow
+          key={elem.id}
+          {...props}
+          currentOffer={elem}
+          deleteRow={deleteRow}
+        />
       ))}
       {/* button for adding new model */}
       <SquareIconButton

@@ -38,8 +38,6 @@ function Offer() {
     adjustments: [{ name: "", text: "", id: uuidv4() }],
   });
 
-  console.log(offerList);
-
   // references
   const executorRef = useRef(null);
   const addressRef = useRef(null);
