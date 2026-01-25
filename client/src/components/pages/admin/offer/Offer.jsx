@@ -68,7 +68,7 @@ function Offer() {
           {/* Client */}
           <span>Заказчик:</span>
           <ButtonList
-            text={checkedClient.name || ""}
+            text={checkedClient.name}
             icon={faChevronDown}
             list={data?.clients.map((elem) => ({
               id: elem._id,

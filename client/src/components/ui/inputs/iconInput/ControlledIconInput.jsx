@@ -4,9 +4,9 @@ import SquareIconButton from "../../buttons/squareIconButton/SquareIconButton.js
 import styles from "./IconInput.module.css";
 
 // Controlled input template with icon after
-function ControlledIconInput({ placeholder = "", icon, ...props }) {
+function ControlledIconInput({ placeholder = "", icon, className = "", ...props }) {
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${className}`}>
       <ControlledInput {...props} placeholder={placeholder} />
       <SquareIconButton icon={icon} />
     </div>
