@@ -6,10 +6,10 @@
 }
 
 .model {
-  flex-grow: 1;
+  width: 21rem;
 }
 .name {
-  flex-grow: 1.4;
+  flex-grow: 1;
 }
 .unit > button {
   width: 6rem;

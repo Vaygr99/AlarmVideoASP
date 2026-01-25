@@ -141,7 +141,7 @@ function OfferRow({ currentOffer = {}, setRows, devices }) {
         icon={faTrashCan}
       />
       <div className={styles.result}>
-        <span>{123340}</span>
+        <span>{currentOffer.price * currentOffer.quantity || 0}</span>
       </div>
     </div>
   );
