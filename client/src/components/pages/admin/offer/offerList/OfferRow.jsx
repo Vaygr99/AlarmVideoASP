@@ -10,18 +10,18 @@ import styles from "./OfferRow.module.css";
 // quantity, result = price * quantity
 function OfferRow({ currentOffer = {}, setRows, devices }) {
   // object, containing selected device name and its id
-  const [deviceName, setDeviceName] = useState({});
+  const [deviceName, setDeviceName] = useState({ id: null, name: "" });
   // object, containing selected device model and its id
-  const [deviceModel, setDeviceModel] = useState({});
+  const [deviceModel, setDeviceModel] = useState({ id: null, name: "" });
 
   // update device name
   useEffect(() => {
     // clear selected model name
-    setDeviceModel({});
+    setDeviceModel({ id: null, name: "" });
     setRows((prev) =>
       prev.map((elem) => {
         return elem.id === currentOffer.id
-          ? { ...elem, name: deviceName.name }
+          ? { ...elem, model: "", name: deviceName.name }
           : elem;
       }),
     );
@@ -37,9 +37,6 @@ function OfferRow({ currentOffer = {}, setRows, devices }) {
       }),
     );
   }, [deviceModel.name]);
-
-  console.log(deviceName, deviceModel);
-  console.log(devices.filter((e) => e._id === deviceName.id)[0]?.models);
 
   return (
     <div className={styles.container}>

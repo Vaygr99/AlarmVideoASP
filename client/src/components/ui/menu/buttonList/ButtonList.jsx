@@ -8,7 +8,7 @@ import useOutsideClick from "../useOutsideClick.js";
 import styles from "./ButtonList.module.css";
 
 // Button (with icon and text) for opening list items
-function ButtonList({ text = "", icon, list, checkValue, className }) {
+function ButtonList({ text = "", icon, list = [], checkValue, className }) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
 
@@ -21,7 +21,8 @@ function ButtonList({ text = "", icon, list, checkValue, className }) {
       onClick={() => setOpen((prev) => !prev)}
     >
       <IconTextButton className={styles.button} text={text} icon={icon} />
-      {open && <List list={list} checkValue={checkValue} />}
+      {/* if models list isn't empty, we'll see them */}
+      {!!list.length && open && <List list={list} checkValue={checkValue} />}
     </div>
   );
 }
