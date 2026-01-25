@@ -9,11 +9,15 @@ import styles from "./OfferRow.module.css";
 // Create row, consisting of: model, its name, unit, device price,
 // quantity, result = price * quantity
 function OfferRow({ currentOffer = {}, setRows, devices }) {
-  //const [row, setRow] = useState(currentOffer);
   // object, containing selected device name and its id
   const [deviceName, setDeviceName] = useState({});
+  // object, containing selected device model and its id
+  const [deviceModel, setDeviceModel] = useState({});
 
+  // update device name
   useEffect(() => {
+    // clear selected model name
+    setDeviceModel({});
     setRows((prev) =>
       prev.map((elem) => {
         return elem.id === currentOffer.id
@@ -23,12 +27,34 @@ function OfferRow({ currentOffer = {}, setRows, devices }) {
     );
   }, [deviceName.id]);
 
+  // update device model
+  useEffect(() => {
+    setRows((prev) =>
+      prev.map((elem) => {
+        return elem.id === currentOffer.id
+          ? { ...elem, model: deviceModel.name }
+          : elem;
+      }),
+    );
+  }, [deviceModel.name]);
+
+  console.log(deviceName, deviceModel);
+  console.log(devices.filter((e) => e._id === deviceName.id)[0]?.models);
+
   return (
     <div className={styles.container}>
+      {/* device model */}
       <ButtonList
         className={styles.model}
         text={currentOffer.model}
         icon={faChevronDown}
+        list={devices
+          .filter((e) => e._id === deviceName.id)[0]
+          ?.models.map((elem) => ({
+            id: elem.id,
+            name: elem.model,
+          }))}
+        checkValue={setDeviceModel}
       />
       {/* device name */}
       <ButtonList
