@@ -1,11 +1,11 @@
-import { faPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { v4 as uuidv4 } from "uuid";
 
 import SquareIconButton from "../../../../ui/buttons/squareIconButton/SquareIconButton.jsx";
 
-import OfferRow from "./OfferRow.jsx";
-import OfferButtons from "./OfferButtons.jsx";
-import ControlledIconInput from "../../../../ui/inputs/ControlledInput.jsx";
+import OfferRow from "./rows/OfferRow.jsx";
+import OfferButtons from "./buttons/OfferButtons.jsx";
+import OfferCosts from "./costs/OfferCosts.jsx";
 
 import styles from "./OfferList.module.css";
 
@@ -41,56 +41,7 @@ function OfferList({ rows = [], ...props }) {
       />
 
       {/* additional costs and total cost */}
-      <div>
-        <div>
-          <span>Материалы:</span>
-          <span>Транспортные расходы:</span>
-          <span>Монтаж, настройки:</span>
-          <span>Проект:</span>
-          <span>Всего:</span>
-        </div>
-        <div>
-          <div>
-            <span>{0}</span>
-          </div>
-          <div className={styles.newDevice}>
-            <ControlledIconInput
-              {...props}
-              value={props.roadCost}
-              onChange={(e) => {
-                props.setRoadCost(e.target.value);
-              }}
-              placeholder="0"
-              icon={faTrashCan}
-            />
-          </div>
-          <div className={styles.newDevice}>
-            <ControlledIconInput
-              {...props}
-              value={props.mountCost}
-              onChange={(e) => {
-                props.setMountCost(e.target.value);
-              }}
-              placeholder="0"
-              icon={faTrashCan}
-            />
-          </div>
-          <div className={styles.newDevice}>
-            <ControlledIconInput
-              {...props}
-              value={props.projectCost}
-              onChange={(e) => {
-                props.setProjectCost(e.target.value);
-              }}
-              placeholder="0"
-              icon={faTrashCan}
-            />
-          </div>
-          <div>
-            <span>{0}</span>
-          </div>
-        </div>
-      </div>
+      <OfferCosts {...props} />
 
       {/* offer buttons at the bottom */}
       <OfferButtons action={"create"} />

@@ -1,16 +1,26 @@
-import { faChevronDown, faTrashCan, faMinus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faTrashCan,
+  faMinus,
+} from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import ButtonList from "../../../../ui/menu/buttonList/ButtonList.jsx";
-import ControlledIconInput from "../../../../ui/inputs/iconInput/ControlledIconInput.jsx";
-import SquareIconButton from "../../../../ui/buttons/squareIconButton/SquareIconButton.jsx";
+import ButtonList from "../../../../../ui/menu/buttonList/ButtonList.jsx";
+import ControlledIconInput from "../../../../../ui/inputs/iconInput/ControlledIconInput.jsx";
+import SquareIconButton from "../../../../../ui/buttons/squareIconButton/SquareIconButton.jsx";
 
 import styles from "./OfferRow.module.css";
 
 // Create row, consisting of: model, its name, unit, device price,
 // quantity, result = price * quantity
-function OfferRow({ currentOffer = {}, setRows, devices, deleteRow, canDelete }) {
+function OfferRow({
+  currentOffer = {},
+  setRows,
+  devices,
+  deleteRow,
+  canDelete,
+}) {
   // object, containing selected device name and its id
   const [deviceName, setDeviceName] = useState({ id: null, name: "" });
   // object, containing selected device model and its id
@@ -146,7 +156,9 @@ function OfferRow({ currentOffer = {}, setRows, devices, deleteRow, canDelete })
       <SquareIconButton
         icon={faMinus}
         className="top-square-button"
-        onClick={() => {canDelete && deleteRow(currentOffer.id)}}
+        onClick={() => {
+          canDelete && deleteRow(currentOffer.id);
+        }}
       />
     </div>
   );

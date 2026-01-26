@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import TextButton from "../../../../ui/buttons/textButton/TextButton.jsx";
+import TextButton from "../../../../../ui/buttons/textButton/TextButton.jsx";
 
 import styles from "./OfferButtons.module.css";
 
