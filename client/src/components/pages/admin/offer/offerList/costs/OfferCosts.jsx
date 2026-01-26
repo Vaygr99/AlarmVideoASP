@@ -32,7 +32,10 @@ function OfferCosts({
           <ControlledIconInput
             value={roadCost}
             onChange={(e) => {
-              setRoadCost(e.target.value);
+              const value = e.target.value;
+              if (/^\d*$/.test(value)) {
+                setRoadCost(value);
+              }
             }}
             placeholder="0"
             icon={faTrashCan}
@@ -42,7 +45,10 @@ function OfferCosts({
           <ControlledIconInput
             value={mountCost}
             onChange={(e) => {
-              setMountCost(e.target.value);
+              const value = e.target.value;
+              if (/^\d*$/.test(value)) {
+                setMountCost(value);
+              }
             }}
             placeholder="0"
             icon={faTrashCan}
@@ -52,7 +58,10 @@ function OfferCosts({
           <ControlledIconInput
             value={projectCost}
             onChange={(e) => {
-              setProjectCost(e.target.value);
+              const value = e.target.value;
+              if (/^\d*$/.test(value)) {
+                setProjectCost(value);
+              }
             }}
             placeholder="0"
             icon={faTrashCan}
