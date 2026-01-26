@@ -25,6 +25,13 @@ function Offer() {
   const [offerList, setOfferList] = useState([
     { model: "", price: "", quantity: "", unit: "", name: "", id: uuidv4() },
   ]);
+  // road cost
+  const [roadCost, setRoadCost] = useState("");
+  // mount cost
+  const [mountCost, setMountCost] = useState("");
+  // project cost
+  const [projectCost, setProjectCost] = useState("");
+
   // new offer
   const [newOffer, setNewOffer] = useState({
     title: "",
@@ -127,6 +134,12 @@ function Offer() {
           rows={offerList}
           setRows={setOfferList}
           devices={data?.devices ?? []}
+          roadCost={roadCost}
+          setRoadCost={setRoadCost}
+          mountCost={mountCost}
+          setMountCost={setMountCost}
+          projectCost={projectCost}
+          setProjectCost={setProjectCost}
         />
       </div>
     </div>
