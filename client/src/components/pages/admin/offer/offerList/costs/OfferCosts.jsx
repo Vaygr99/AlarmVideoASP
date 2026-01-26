@@ -1,6 +1,8 @@
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
-import ControlledIconInput from "../../../../../ui/inputs/ControlledInput.jsx";
+import ControlledIconInput from "../../../../../ui/inputs/iconInput/ControlledIconInput";
+
+import styles from "./OfferCosts.module.css";
 
 {
   /* additional costs and total cost */
@@ -12,10 +14,9 @@ function OfferCosts({
   setMountCost,
   projectCost,
   setProjectCost,
-  ...props
 }) {
   return (
-    <div>
+    <div className={styles.container}>
       <div>
         <span>Материалы:</span>
         <span>Транспортные расходы:</span>
@@ -24,12 +25,11 @@ function OfferCosts({
         <span>Всего:</span>
       </div>
       <div>
-        <div>
-          <span>{0}</span>
+        <div className={styles.result}>
+          <span>{0} грн.</span>
         </div>
         <div>
           <ControlledIconInput
-            {...props}
             value={roadCost}
             onChange={(e) => {
               setRoadCost(e.target.value);
@@ -40,7 +40,6 @@ function OfferCosts({
         </div>
         <div>
           <ControlledIconInput
-            {...props}
             value={mountCost}
             onChange={(e) => {
               setMountCost(e.target.value);
@@ -51,7 +50,6 @@ function OfferCosts({
         </div>
         <div>
           <ControlledIconInput
-            {...props}
             value={projectCost}
             onChange={(e) => {
               setProjectCost(e.target.value);
@@ -60,8 +58,8 @@ function OfferCosts({
             icon={faTrashCan}
           />
         </div>
-        <div>
-          <span>{0}</span>
+        <div className={styles.result}>
+          <span>{0} грн.</span>
         </div>
       </div>
     </div>

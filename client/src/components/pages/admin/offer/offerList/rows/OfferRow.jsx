@@ -150,7 +150,7 @@ function OfferRow({
         icon={faTrashCan}
       />
       <div className={styles.result}>
-        <span>{currentOffer.price * currentOffer.quantity || 0}</span>
+        <span>{currentOffer.price * currentOffer.quantity || 0} грн.</span>
       </div>
       {/* delete offer row */}
       <SquareIconButton
