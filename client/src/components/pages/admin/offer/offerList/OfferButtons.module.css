@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.container p {
+  display: block;
+  font-size: 1.2rem;
+}

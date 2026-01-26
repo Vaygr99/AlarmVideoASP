@@ -3,10 +3,14 @@ import { v4 as uuidv4 } from "uuid";
 
 import SquareIconButton from "../../../../ui/buttons/squareIconButton/SquareIconButton.jsx";
 
-import styles from "./OfferList.module.css";
 import OfferRow from "./OfferRow.jsx";
+import OfferButtons from "./OfferButtons.jsx";
+
+import styles from "./OfferList.module.css";
 
 function OfferList({ rows = [], ...props }) {
+  // action (string) - do you use OfferList to create offer ("create") or update ("update")?
+
   // add new offer row
   const addRow = () =>
     props.setRows((prev) => [
@@ -34,6 +38,8 @@ function OfferList({ rows = [], ...props }) {
         className={`${styles.add} top-square-button`}
         onClick={addRow}
       />
+      {/* offer buttons at the bottom */}
+      <OfferButtons action={"create"} />
     </div>
   );
 }
