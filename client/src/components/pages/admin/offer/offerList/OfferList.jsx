@@ -24,6 +24,28 @@ function OfferList({ rows = [], ...props }) {
 
   return (
     <div className={styles.container}>
+      {/* offer rows title */}
+      <div className={styles.title}>
+        <div>
+          <span>Модель</span>
+        </div>
+        <div>
+          <span>Описание</span>
+        </div>
+        <div>
+          <span>Ед. изм.</span>
+        </div>
+        <div>
+          <span>Цена</span>
+        </div>
+        <div>
+          <span>Колич.</span>
+        </div>
+        <div>
+          <span>Сума</span>
+        </div>
+      </div>
+      {/* offer rows list */}
       {rows.map((elem) => (
         <OfferRow
           key={elem.id}

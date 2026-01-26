@@ -24,8 +24,8 @@
 .title > div > span:first-child {
   width: 7.2rem;
 }
-.title input {
-  width: 30rem;
+.title > div > div {
+  width: 35rem;
 }
 .title > div:first-child > div > button {
   min-width: 20rem;
@@ -41,6 +41,10 @@
   display: flex;
   align-items: center;
   column-gap: 0.7rem;
+  margin: 0.6rem 0;
+}
+.taskType > div {
+  width: 35rem;
 }
 .taskType span {
   font-size: 1.15rem;
