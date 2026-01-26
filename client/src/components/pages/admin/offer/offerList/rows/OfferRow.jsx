@@ -150,7 +150,12 @@ function OfferRow({
         icon={faTrashCan}
       />
       <div className={styles.result}>
-        <span>{currentOffer.price * currentOffer.quantity || 0} грн.</span>
+        <span>
+          {(currentOffer.price * currentOffer.quantity).toLocaleString(
+            "de-DE",
+          ) || 0}{" "}
+          грн.
+        </span>
       </div>
       {/* delete offer row */}
       <SquareIconButton

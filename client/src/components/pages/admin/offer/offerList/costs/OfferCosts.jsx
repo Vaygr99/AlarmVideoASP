@@ -26,7 +26,7 @@ function OfferCosts({
       </div>
       <div>
         <div className={styles.result}>
-          <span>{0} грн.</span>
+          <span>{(1234).toLocaleString("de-DE")} грн.</span>
         </div>
         <div>
           <ControlledIconInput
@@ -68,7 +68,7 @@ function OfferCosts({
           />
         </div>
         <div className={styles.result}>
-          <span>{0} грн.</span>
+          <span>{(1234).toLocaleString("de-DE")} грн.</span>
         </div>
       </div>
     </div>
