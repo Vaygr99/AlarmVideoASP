@@ -25,6 +25,7 @@ function OfferList({ rows = [], ...props }) {
           {...props}
           currentOffer={elem}
           deleteRow={deleteRow}
+          canDelete={rows.length > 1}
         />
       ))}
       {/* button for adding new model */}

@@ -25,7 +25,7 @@ function ModelsList({ models = [], setModels }) {
     <div className={styles.container}>
       <p>Модель:</p>
       {models.map((elem) => (
-        <Model key={elem.id} model={elem} updateModel={updateModel} deleteModel={deleteModel} />
+        <Model key={elem.id} model={elem} updateModel={updateModel} deleteModel={deleteModel} canDelete={models.length > 1} />
       ))}
       {/* button for adding new model */}
       <SquareIconButton

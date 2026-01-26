@@ -10,7 +10,7 @@ import styles from "./OfferRow.module.css";
 
 // Create row, consisting of: model, its name, unit, device price,
 // quantity, result = price * quantity
-function OfferRow({ currentOffer = {}, setRows, devices, deleteRow }) {
+function OfferRow({ currentOffer = {}, setRows, devices, deleteRow, canDelete }) {
   // object, containing selected device name and its id
   const [deviceName, setDeviceName] = useState({ id: null, name: "" });
   // object, containing selected device model and its id
@@ -146,7 +146,7 @@ function OfferRow({ currentOffer = {}, setRows, devices, deleteRow }) {
       <SquareIconButton
         icon={faMinus}
         className="top-square-button"
-        onClick={() => deleteRow(currentOffer.id)}
+        onClick={() => {canDelete && deleteRow(currentOffer.id)}}
       />
     </div>
   );
